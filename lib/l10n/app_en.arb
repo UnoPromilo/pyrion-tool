@@ -1,3 +1,27 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "appTitle": "Ferro BLDC Toolbox",
+  "selectMotorController": "Select your motor controller",
+  "discoveredDevices": "Discovered Devices ({count})",
+  "@discoveredDevices": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "manualConnection": "Manual connection",
+  "refreshDevices": "Refresh devices",
+  "index": "Index",
+  "interface": "Interface",
+  "portAddress": "Port/Address",
+  "deviceName": "Device name",
+  "firmware": "Firmware",
+  "action": "Action",
+  "connect": "Connect",
+  "connectionTypeSerial": "Serial",
+  "connectionTypeUsb": "USB",
+  "connectionTypeCan": "CAN",
+  "pleaseSelectOne": "Please select one",
+  "addressOfDevice": "Address of the device"
 }

@@ -1,5 +1,8 @@
 import 'package:ioc_container/ioc_container.dart';
 
+import 'features/device_discovery/device_discovery_service.dart';
+import 'presentation/blocs/device_discovery/device_discovery_bloc.dart';
+
 IocContainer createIocContainer({
   void Function(IocContainerBuilder)? replaceDependencies,
 }) {
@@ -13,7 +16,15 @@ IocContainer createIocContainer({
 }
 
 extension on IocContainerBuilder {
-  void registerBloc() {}
+  void registerBloc() {
+    add((c) => DeviceDiscoveryBloc(c()));
+  }
 
-  void registerFeatures() {}
+  void registerFeatures() {
+    registerDeviceDiscovery();
+  }
+
+  void registerDeviceDiscovery() {
+    add((c) => DeviceDiscoveryService());
+  }
 }

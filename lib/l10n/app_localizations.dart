@@ -93,6 +93,108 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ferro BLDC Toolbox'**
+  String get appTitle;
+
+  /// No description provided for @selectMotorController.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your motor controller'**
+  String get selectMotorController;
+
+  /// No description provided for @discoveredDevices.
+  ///
+  /// In en, this message translates to:
+  /// **'Discovered Devices ({count})'**
+  String discoveredDevices(int count);
+
+  /// No description provided for @manualConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual connection'**
+  String get manualConnection;
+
+  /// No description provided for @refreshDevices.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh devices'**
+  String get refreshDevices;
+
+  /// No description provided for @index.
+  ///
+  /// In en, this message translates to:
+  /// **'Index'**
+  String get index;
+
+  /// No description provided for @interface.
+  ///
+  /// In en, this message translates to:
+  /// **'Interface'**
+  String get interface;
+
+  /// No description provided for @portAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Port/Address'**
+  String get portAddress;
+
+  /// No description provided for @deviceName.
+  ///
+  /// In en, this message translates to:
+  /// **'Device name'**
+  String get deviceName;
+
+  /// No description provided for @firmware.
+  ///
+  /// In en, this message translates to:
+  /// **'Firmware'**
+  String get firmware;
+
+  /// No description provided for @action.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get action;
+
+  /// No description provided for @connect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect'**
+  String get connect;
+
+  /// No description provided for @connectionTypeSerial.
+  ///
+  /// In en, this message translates to:
+  /// **'Serial'**
+  String get connectionTypeSerial;
+
+  /// No description provided for @connectionTypeUsb.
+  ///
+  /// In en, this message translates to:
+  /// **'USB'**
+  String get connectionTypeUsb;
+
+  /// No description provided for @connectionTypeCan.
+  ///
+  /// In en, this message translates to:
+  /// **'CAN'**
+  String get connectionTypeCan;
+
+  /// No description provided for @pleaseSelectOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select one'**
+  String get pleaseSelectOne;
+
+  /// No description provided for @addressOfDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Address of the device'**
+  String get addressOfDevice;
 }
 
 class _AppLocalizationsDelegate
