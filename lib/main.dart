@@ -32,6 +32,7 @@ class _AppRootState extends State<AppRoot> {
       title: 'BLDC Tool',
       theme: defaultShadThemeData,
       supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       routerConfig: widget.router.config(),
       builder: (_, child) {
         return AppTheme(
