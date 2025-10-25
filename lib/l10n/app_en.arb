@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "Ferro BLDC Toolbox",
+  "appTitle": "Pyrion ESC Tool",
   "selectMotorController": "Select your motor controller",
   "discoveredDevices": "Discovered Devices ({count})",
   "@discoveredDevices": {
