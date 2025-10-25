@@ -9,15 +9,39 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Ferro BLDC Toolbox';
+  String get appTitle => 'Pyrion ESC Tool';
 
   @override
   String get selectMotorController => 'Select your motor controller';
 
   @override
+  String get searching => 'Searching...';
+
+  @override
+  String get noDevicesDiscovered => 'No devices have been found';
+
+  @override
   String discoveredDevices(int count) {
     return 'Discovered Devices ($count)';
   }
+
+  @override
+  String get deviceDiscoveryErrorNetworkError => 'Network connection failed';
+
+  @override
+  String get deviceDiscoveryErrorAborted => 'Discovery was aborted';
+
+  @override
+  String get deviceDiscoveryErrorUnauthenticated => 'Authentication required';
+
+  @override
+  String get deviceDiscoveryErrorUnavailable => 'Discovery service unavailable';
+
+  @override
+  String get deviceDiscoveryErrorInternalError => 'Internal error occurred';
+
+  @override
+  String get deviceDiscoveryErrorUnknown => 'Unknown error';
 
   @override
   String get manualConnection => 'Manual connection';
@@ -54,6 +78,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get connectionTypeCan => 'CAN';
+
+  @override
+  String get connectionTypeVirtual => 'Virtual';
 
   @override
   String get pleaseSelectOne => 'Please select one';

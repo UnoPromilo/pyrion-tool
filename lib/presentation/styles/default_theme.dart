@@ -16,5 +16,6 @@ final AppThemeData defaultAppThemeData = AppThemeData(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   ),
-  grayTextColor: const Color(0xffb6b6b6),
+  grayTextColor: const Color(0xFFB6B6B6),
+  spinnerColor: const Color(0xFFFFFFFF),
 );

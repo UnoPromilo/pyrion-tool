@@ -5,10 +5,10 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:bldc_tool/dependencies.dart';
-import 'package:bldc_tool/main.dart';
-import 'package:bldc_tool/router.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pyrion_tool/dependencies.dart';
+import 'package:pyrion_tool/main.dart';
+import 'package:pyrion_tool/router.dart';
 
 void main() {
   testWidgets('App should run', (tester) async {

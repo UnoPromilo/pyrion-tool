@@ -97,7 +97,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Ferro BLDC Toolbox'**
+  /// **'Pyrion ESC Tool'**
   String get appTitle;
 
   /// No description provided for @selectMotorController.
@@ -106,11 +106,59 @@ abstract class AppLocalizations {
   /// **'Select your motor controller'**
   String get selectMotorController;
 
+  /// No description provided for @searching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching...'**
+  String get searching;
+
+  /// No description provided for @noDevicesDiscovered.
+  ///
+  /// In en, this message translates to:
+  /// **'No devices have been found'**
+  String get noDevicesDiscovered;
+
   /// No description provided for @discoveredDevices.
   ///
   /// In en, this message translates to:
   /// **'Discovered Devices ({count})'**
   String discoveredDevices(int count);
+
+  /// No description provided for @deviceDiscoveryErrorNetworkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network connection failed'**
+  String get deviceDiscoveryErrorNetworkError;
+
+  /// No description provided for @deviceDiscoveryErrorAborted.
+  ///
+  /// In en, this message translates to:
+  /// **'Discovery was aborted'**
+  String get deviceDiscoveryErrorAborted;
+
+  /// No description provided for @deviceDiscoveryErrorUnauthenticated.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication required'**
+  String get deviceDiscoveryErrorUnauthenticated;
+
+  /// No description provided for @deviceDiscoveryErrorUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Discovery service unavailable'**
+  String get deviceDiscoveryErrorUnavailable;
+
+  /// No description provided for @deviceDiscoveryErrorInternalError.
+  ///
+  /// In en, this message translates to:
+  /// **'Internal error occurred'**
+  String get deviceDiscoveryErrorInternalError;
+
+  /// No description provided for @deviceDiscoveryErrorUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown error'**
+  String get deviceDiscoveryErrorUnknown;
 
   /// No description provided for @manualConnection.
   ///
@@ -183,6 +231,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'CAN'**
   String get connectionTypeCan;
+
+  /// No description provided for @connectionTypeVirtual.
+  ///
+  /// In en, this message translates to:
+  /// **'Virtual'**
+  String get connectionTypeVirtual;
 
   /// No description provided for @pleaseSelectOne.
   ///

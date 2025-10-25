@@ -2,6 +2,8 @@
   "@@locale": "en",
   "appTitle": "Pyrion ESC Tool",
   "selectMotorController": "Select your motor controller",
+  "searching": "Searching...",
+  "noDevicesDiscovered": "No devices have been found",
   "discoveredDevices": "Discovered Devices ({count})",
   "@discoveredDevices": {
     "placeholders": {
@@ -10,6 +12,12 @@
       }
     }
   },
+  "deviceDiscoveryErrorNetworkError": "Network connection failed",
+  "deviceDiscoveryErrorAborted": "Discovery was aborted",
+  "deviceDiscoveryErrorUnauthenticated": "Authentication required",
+  "deviceDiscoveryErrorUnavailable": "Discovery service unavailable",
+  "deviceDiscoveryErrorInternalError": "Internal error occurred",
+  "deviceDiscoveryErrorUnknown": "Unknown error",
   "manualConnection": "Manual connection",
   "refreshDevices": "Refresh devices",
   "index": "Index",
@@ -22,6 +30,7 @@
   "connectionTypeSerial": "Serial",
   "connectionTypeUsb": "USB",
   "connectionTypeCan": "CAN",
+  "connectionTypeVirtual": "Virtual",
   "pleaseSelectOne": "Please select one",
   "addressOfDevice": "Address of the device"
 }

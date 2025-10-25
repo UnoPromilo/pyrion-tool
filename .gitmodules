@@ -1,0 +1,3 @@
+[submodule "lib/remotes/device_api/proto"]
+	path = lib/remotes/device_api/proto
+	url = https://github.com/UnoPromilo/pyrion-proto.git

@@ -5,59 +5,56 @@ import 'package:meta/meta.dart';
 
 import '../../../features/device_discovery/device_discovery_service.dart';
 import '../../../features/device_discovery/discovered_device.dart';
+import '../../../shared/result.dart';
 
 part 'device_discovery_event.dart';
+
 part 'device_discovery_state.dart';
 
 class DeviceDiscoveryBloc
     extends Bloc<DeviceDiscoveryEvent, DeviceDiscoveryState> {
   DeviceDiscoveryBloc(this._discoveryService)
-    : super(const DeviceDiscoveryIdle(devices: [])) {
+    : super(const DeviceDiscoveryIdle([])) {
     on<RefreshDevices>(
       _onRefresh,
-      //transformer: debounce(const Duration(milliseconds: 300)),
     );
-    on<NewDeviceDiscovered>(_onNewDeviceDiscovered);
-    on<DeviceDiscoveryFinished>(_onDiscoveryFinished);
+    on<NewDevicesDiscovered>(_onNewDevicesDiscovered);
+    on<RefreshingFailed>(_onRefreshingFailed);
     add(RefreshDevices());
   }
 
   final DeviceDiscoveryService _discoveryService;
-  StreamSubscription<DiscoveredDevice>? _devicesSubscription;
 
-  void _onRefresh(RefreshDevices event, Emitter<DeviceDiscoveryState> emitter) {
-    if (_devicesSubscription != null) {
+  Future _onRefresh(
+    RefreshDevices event,
+    Emitter<DeviceDiscoveryState> emitter,
+  ) async {
+    if (state is DeviceDiscoverySearching) {
       return;
     }
-    emitter(const DeviceDiscoverySearching(devices: []));
+    emitter(const DeviceDiscoverySearching());
 
-    _devicesSubscription = _discoveryService.discover().listen(
-      (device) => add(NewDeviceDiscovered(device)),
-    )..onDone(() => add(DeviceDiscoveryFinished()));
+    final result = await _discoveryService.discover();
+
+    switch (result) {
+      case Success(:final data):
+        add(NewDevicesDiscovered(data));
+      case Failure(:final error):
+        add(RefreshingFailed(error));
+    }
   }
 
-  void _onNewDeviceDiscovered(
-    NewDeviceDiscovered event,
+  void _onNewDevicesDiscovered(
+    NewDevicesDiscovered event,
     Emitter<DeviceDiscoveryState> emit,
   ) {
-    emit(
-      DeviceDiscoverySearching(
-        devices: state.devices.followedBy([event.device]).toList(),
-      ),
-    );
+    emit(DeviceDiscoveryIdle(event.devices));
   }
 
-  void _onDiscoveryFinished(
-    DeviceDiscoveryFinished event,
+  void _onRefreshingFailed(
+    RefreshingFailed event,
     Emitter<DeviceDiscoveryState> emit,
   ) {
-    _devicesSubscription = null;
-    emit(DeviceDiscoveryIdle(devices: state.devices));
-  }
-
-  @override
-  Future<void> close() {
-    _devicesSubscription?.cancel();
-    return super.close();
+    emit(DeviceDiscoveryError(event.error));
   }
 }

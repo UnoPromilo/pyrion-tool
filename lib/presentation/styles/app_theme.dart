@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 final class AppThemeData {
-  AppThemeData({required this.backgroundGradient, required this.grayTextColor});
+  AppThemeData({
+    required this.spinnerColor,
+    required this.backgroundGradient,
+    required this.grayTextColor,
+  });
 
   final Gradient backgroundGradient;
   final Color grayTextColor;
+  final Color spinnerColor;
 }
 
 class AppTheme extends StatelessWidget {

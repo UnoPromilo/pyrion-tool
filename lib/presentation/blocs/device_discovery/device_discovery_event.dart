@@ -5,12 +5,14 @@ sealed class DeviceDiscoveryEvent {}
 
 final class RefreshDevices extends DeviceDiscoveryEvent {}
 
-final class NewDeviceDiscovered extends DeviceDiscoveryEvent {
-  NewDeviceDiscovered(this.device);
+final class NewDevicesDiscovered extends DeviceDiscoveryEvent {
+  NewDevicesDiscovered(this.devices);
 
-  final DiscoveredDevice device;
+  final List<DiscoveredDevice> devices;
 }
 
-final class DeviceDiscoveryFinished extends DeviceDiscoveryEvent {
-  DeviceDiscoveryFinished();
+final class RefreshingFailed extends DeviceDiscoveryEvent {
+  RefreshingFailed(this.error);
+
+  final DiscoveryError error;
 }

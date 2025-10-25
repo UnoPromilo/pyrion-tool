@@ -6,6 +6,7 @@ analyzer:
     - '**/*.freezed.dart'
     - '**/*.mocks.dart'
     - 'integration_test/test_bundle.dart'
+    - 'lib/remotes/device_api/generated'
 
 linter:
   rules:

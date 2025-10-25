@@ -32,9 +32,9 @@ class ManualConnectDialog extends StatelessWidget {
               children: [
                 Expanded(child: Text(context.appLocalizations.interface)),
                 Expanded(
-                  child: ShadSelect<ConnectionType>(
+                  child: ShadSelect<Interface>(
                     placeholder: Text(context.appLocalizations.pleaseSelectOne),
-                    options: ConnectionType.values.map(
+                    options: Interface.values.map(
                       (e) => ShadOption(
                         value: e,
                         child: Text(_connectionTypeToString(e, context)),
@@ -63,13 +63,14 @@ class ManualConnectDialog extends StatelessWidget {
   }
 
   String _connectionTypeToString(
-    ConnectionType connectionType,
+    Interface connectionType,
     BuildContext context,
   ) {
     return switch (connectionType) {
-      ConnectionType.serial => context.appLocalizations.connectionTypeSerial,
-      ConnectionType.usb => context.appLocalizations.connectionTypeUsb,
-      ConnectionType.can => context.appLocalizations.connectionTypeCan,
+      Interface.serial => context.appLocalizations.connectionTypeSerial,
+      Interface.usb => context.appLocalizations.connectionTypeUsb,
+      Interface.can => context.appLocalizations.connectionTypeCan,
+      Interface.virtual => context.appLocalizations.connectionTypeVirtual,
     };
   }
 }
