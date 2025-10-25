@@ -48,3 +48,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/remotes/device_api/generated/
+!/lib/remotes/device_api/generated/.keep
