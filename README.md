@@ -21,7 +21,9 @@ dart run build_runner build
    Run the `protoc`
 
 ```bash
-protoc --dart_out=grpc:lib/remotes/device_api/generated -I lib/remotes/device_api/proto/proto lib/remotes/device_api/proto/proto/v1/discovery.proto
+protoc --dart_out=grpc:lib/remotes/device_api/generated \
+  -I=lib/remotes/device_api/proto \
+  lib/remotes/device_api/proto/**/*.proto
 ```
 
 3. **Run the App:**
