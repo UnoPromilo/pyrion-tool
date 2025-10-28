@@ -18,4 +18,7 @@ class AppSizes {
 
   /// 30px
   static const double spacingXLarge = 30;
+
+  /// 50px
+  static const double defaultAppIconSize = 50;
 }

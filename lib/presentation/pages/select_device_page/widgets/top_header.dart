@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../shared/build_context_extensions.dart';
-import '../../blocs/device_discovery/device_discovery_bloc.dart';
-import '../../styles/app_sizes.dart';
-import '../../styles/text_style_extensions.dart';
+import '../../../../shared/build_context_extensions.dart';
+import '../../../blocs/device_discovery/device_discovery_bloc.dart';
+import '../../../styles/app_sizes.dart';
+import '../../../styles/style_extensions.dart';
 import 'manual_connect_dialog.dart';
 
 class TopHeader extends StatelessWidget {
@@ -35,7 +35,7 @@ class TopHeader extends StatelessWidget {
             children: [
               const Icon(LucideIcons.plus),
               const SizedBox(width: AppSizes.spacingSmall),
-              Text(context.appLocalizations.manualConnection),
+              Text(context.appLocalizations.manualConnectionButton),
             ],
           ),
           onPressed: () => {

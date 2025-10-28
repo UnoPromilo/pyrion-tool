@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../styles/text_style_extensions.dart';
+import '../styles/style_extensions.dart';
 
 class AppSpinner extends StatelessWidget {
   const AppSpinner({super.key});

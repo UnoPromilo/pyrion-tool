@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../features/device_discovery/discovered_device.dart';
-import '../../../shared/build_context_extensions.dart';
-import '../../blocs/device_discovery/device_discovery_bloc.dart';
-import '../../styles/text_style_extensions.dart';
-import '../../widgets/app_spinner.dart';
+import '../../../../features/device_discovery/discovered_device.dart';
+import '../../../../shared/build_context_extensions.dart';
+import '../../../../shared/interface.dart';
+import '../../../blocs/device_discovery/device_discovery_bloc.dart';
+import '../../../blocs/device_session/device_session_bloc.dart';
+import '../../../styles/style_extensions.dart';
+import '../../../widgets/app_spinner.dart';
 
 class DiscoveredDevicesList extends StatelessWidget {
   const DiscoveredDevicesList({super.key});
@@ -94,7 +96,18 @@ class DiscoveredDevicesList extends StatelessWidget {
         ),
       ),
       ShadTableCell(
-        child: ShadButton(child: Text(context.appLocalizations.connect)),
+        child: ShadButton(
+          child: Text(context.appLocalizations.connect),
+          onPressed: () => {
+            context.read<DeviceSessionBloc>().add(
+              ConnectToDevice(
+                connectionString: device.connectionString,
+                deviceName: device.name,
+                interface: device.interface,
+              ),
+            ),
+          },
+        ),
       ),
     ];
   }

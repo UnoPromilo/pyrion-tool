@@ -44,7 +44,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deviceDiscoveryErrorUnknown => 'Unknown error';
 
   @override
-  String get manualConnection => 'Manual connection';
+  String get manualConnectionButton => 'Manual connection';
 
   @override
   String get refreshDevices => 'Refresh devices';
@@ -87,4 +87,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addressOfDevice => 'Address of the device';
+
+  @override
+  String get connectionFailed => 'Connection failed';
+
+  @override
+  String get failedToConnect => 'Failed to connect to the device.';
+
+  @override
+  String get failedToConnectNetworkError =>
+      'Please check the internet connection and try again.';
+
+  @override
+  String get failedToConnectUnauthenticated =>
+      'Please verify that you are authenticated.';
+
+  @override
+  String get failedToConnectUnavailable =>
+      'Please verify the connection details and try again.';
+
+  @override
+  String get failedToConnectDeviceNotResponding =>
+      'Please restart the device and try again.';
+
+  @override
+  String get connectedSuccessfully => 'Connected successfully';
+
+  @override
+  String get manualConnectionDialogTitle => 'Manual connection';
+
+  @override
+  String get manualConnectionDialogDescription =>
+      'Please provide details of the device you want to connect to';
 }

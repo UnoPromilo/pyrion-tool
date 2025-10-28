@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../widgets/status_icon/app_status_icon.dart';
 import 'app_theme.dart';
 
 final ShadThemeData defaultShadThemeData = ShadThemeData(
@@ -18,4 +19,16 @@ final AppThemeData defaultAppThemeData = AppThemeData(
   ),
   grayTextColor: const Color(0xFFB6B6B6),
   spinnerColor: const Color(0xFFFFFFFF),
+  appErrorIcon: AppStatusIconTheme(
+    backgroundColor: const Color(0x33FB2C36),
+    color: const Color(0xFFFB2C36),
+  ),
+  appSuccessIcon: AppStatusIconTheme(
+    backgroundColor: const Color(0x333A9002),
+    color: const Color(0xFF3A9002),
+  ),
+  appStatusIcon: AppStatusIconTheme(
+    backgroundColor: const Color(0x33FFFFFF),
+    color: const Color(0xFFFFFFFF),
+  ),
 );

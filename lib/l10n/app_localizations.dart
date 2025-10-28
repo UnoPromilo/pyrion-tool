@@ -160,11 +160,11 @@ abstract class AppLocalizations {
   /// **'Unknown error'**
   String get deviceDiscoveryErrorUnknown;
 
-  /// No description provided for @manualConnection.
+  /// No description provided for @manualConnectionButton.
   ///
   /// In en, this message translates to:
   /// **'Manual connection'**
-  String get manualConnection;
+  String get manualConnectionButton;
 
   /// No description provided for @refreshDevices.
   ///
@@ -249,6 +249,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Address of the device'**
   String get addressOfDevice;
+
+  /// No description provided for @connectionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection failed'**
+  String get connectionFailed;
+
+  /// No description provided for @failedToConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to connect to the device.'**
+  String get failedToConnect;
+
+  /// No description provided for @failedToConnectNetworkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check the internet connection and try again.'**
+  String get failedToConnectNetworkError;
+
+  /// No description provided for @failedToConnectUnauthenticated.
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify that you are authenticated.'**
+  String get failedToConnectUnauthenticated;
+
+  /// No description provided for @failedToConnectUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify the connection details and try again.'**
+  String get failedToConnectUnavailable;
+
+  /// No description provided for @failedToConnectDeviceNotResponding.
+  ///
+  /// In en, this message translates to:
+  /// **'Please restart the device and try again.'**
+  String get failedToConnectDeviceNotResponding;
+
+  /// No description provided for @connectedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected successfully'**
+  String get connectedSuccessfully;
+
+  /// No description provided for @manualConnectionDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual connection'**
+  String get manualConnectionDialogTitle;
+
+  /// No description provided for @manualConnectionDialogDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Please provide details of the device you want to connect to'**
+  String get manualConnectionDialogDescription;
 }
 
 class _AppLocalizationsDelegate

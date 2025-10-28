@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/status_icon/app_status_icon.dart';
+
 final class AppThemeData {
   AppThemeData({
     required this.spinnerColor,
     required this.backgroundGradient,
     required this.grayTextColor,
+    required this.appStatusIcon,
+    required this.appSuccessIcon,
+    required this.appErrorIcon,
   });
 
   final Gradient backgroundGradient;
   final Color grayTextColor;
   final Color spinnerColor;
+  final AppStatusIconTheme appStatusIcon;
+  final AppStatusIconTheme appSuccessIcon;
+  final AppStatusIconTheme appErrorIcon;
 }
 
 class AppTheme extends StatelessWidget {

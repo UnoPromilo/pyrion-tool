@@ -18,7 +18,7 @@
   "deviceDiscoveryErrorUnavailable": "Discovery service unavailable",
   "deviceDiscoveryErrorInternalError": "Internal error occurred",
   "deviceDiscoveryErrorUnknown": "Unknown error",
-  "manualConnection": "Manual connection",
+  "manualConnectionButton": "Manual connection",
   "refreshDevices": "Refresh devices",
   "index": "Index",
   "interface": "Interface",
@@ -32,5 +32,14 @@
   "connectionTypeCan": "CAN",
   "connectionTypeVirtual": "Virtual",
   "pleaseSelectOne": "Please select one",
-  "addressOfDevice": "Address of the device"
+  "addressOfDevice": "Address of the device",
+  "connectionFailed": "Connection failed",
+  "failedToConnect": "Failed to connect to the device.",
+  "failedToConnectNetworkError": "Please check the internet connection and try again.",
+  "failedToConnectUnauthenticated": "Please verify that you are authenticated.",
+  "failedToConnectUnavailable": "Please verify the connection details and try again.",
+  "failedToConnectDeviceNotResponding": "Please restart the device and try again.",
+  "connectedSuccessfully": "Connected successfully",
+  "manualConnectionDialogTitle": "Manual connection",
+  "manualConnectionDialogDescription": "Please provide details of the device you want to connect to"
 }

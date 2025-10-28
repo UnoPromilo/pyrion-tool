@@ -4,12 +4,12 @@ import '../../shared/result.dart';
 import 'discovered_device.dart';
 
 class DeviceDiscoveryService {
-  DeviceDiscoveryService(this.client);
+  DeviceDiscoveryService(this._client);
 
-  final DeviceApiClient client;
+  final DeviceApiClient _client;
 
   Future<Result<List<DiscoveredDevice>, DiscoveryError>> discover() async {
-    final result = await client.getAvailableDevices();
+    final result = await _client.getAvailableDevices();
     return switch (result) {
       RemoteSuccess(:final data) => Success(data),
       RemoteError(:final error) => Failure(_mapRemoteErrorType(error)),
@@ -18,7 +18,7 @@ class DeviceDiscoveryService {
 
   DiscoveryError _mapRemoteErrorType(RemoteErrorType error) {
     return switch (error) {
-      RemoteErrorType.aborted => DiscoveryError.networkError,
+      RemoteErrorType.aborted => DiscoveryError.aborted,
       RemoteErrorType.unavailable => DiscoveryError.unavailable,
       RemoteErrorType.dataLoss => DiscoveryError.networkError,
       RemoteErrorType.unauthenticated => DiscoveryError.unauthenticated,

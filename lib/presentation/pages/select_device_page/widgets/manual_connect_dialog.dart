@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../features/device_discovery/discovered_device.dart';
-import '../../../shared/build_context_extensions.dart';
-import '../../styles/app_sizes.dart';
+import '../../../../shared/build_context_extensions.dart';
+import '../../../../shared/interface.dart';
+import '../../../styles/app_sizes.dart';
 
 class ManualConnectDialog extends StatelessWidget {
   const ManualConnectDialog({super.key});
@@ -11,14 +11,14 @@ class ManualConnectDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadDialog(
-      title: const Text('Manual connection'),
-      description: const Text(
-        'Please provide details of device you want to connect to',
+      title: Text(context.appLocalizations.manualConnectionDialogTitle),
+      description: Text(
+        context.appLocalizations.manualConnectionDialogDescription,
       ),
       actions: [
         ShadButton(
           onPressed: Navigator.of(context).pop,
-          child: const Text('Connect'),
+          child: Text(context.appLocalizations.connect),
         ),
       ],
       child: Padding(

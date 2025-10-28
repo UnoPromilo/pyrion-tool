@@ -50,3 +50,5 @@ app.*.map.json
 /android/app/release
 /lib/remotes/device_api/generated/
 !/lib/remotes/device_api/generated/.keep
+
+/lib/l10n/*.dart
