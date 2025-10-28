@@ -35,6 +35,13 @@ flutter run
 
 ---
 
+## Running the app
+
+The **Pyrion ESC Tool** is using a [Pyrion Server](https://github.com/UnoPromilo/pyrion-rs/tree/master/crates/server) to
+handle the communication with the ESCs. Make sure the server app is running before running the tool app.
+
+---
+
 ## License
 
 The software is released under the GNU General Public License version 3.0
