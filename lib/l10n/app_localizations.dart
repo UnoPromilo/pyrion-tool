@@ -315,6 +315,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Disconnect'**
   String get disconnectButton;
+
+  /// No description provided for @statisticsMotorTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Motor'**
+  String get statisticsMotorTemp;
+
+  /// No description provided for @statisticsCpuTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'CPU'**
+  String get statisticsCpuTemp;
+
+  /// No description provided for @statisticsVBus.
+  ///
+  /// In en, this message translates to:
+  /// **'V-Bus'**
+  String get statisticsVBus;
+
+  /// No description provided for @statisticsPower.
+  ///
+  /// In en, this message translates to:
+  /// **'Power'**
+  String get statisticsPower;
+
+  /// No description provided for @statisticsCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get statisticsCurrent;
+
+  /// No description provided for @statisticsDutyCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dupy'**
+  String get statisticsDutyCycle;
 }
 
 class _AppLocalizationsDelegate

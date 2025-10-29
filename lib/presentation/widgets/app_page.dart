@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
+import '../styles/app_sizes.dart';
 import '../styles/app_theme.dart';
 
 class AppPage extends StatelessWidget {
@@ -30,7 +31,7 @@ class _Scaffold extends StatelessWidget {
     return Scaffold(
       body: DecoratedBox(
         decoration: BoxDecoration(gradient: theme.backgroundGradient),
-        child: body,
+        child: Padding(padding: AppSizes.paddingPage, child: body),
       ),
     );
   }

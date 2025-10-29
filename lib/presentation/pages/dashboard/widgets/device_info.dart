@@ -14,6 +14,7 @@ class DeviceInfo extends StatelessWidget {
     return Row(
       spacing: 10,
       children: [
+        const SizedBox(width: 5),
         const _MotorStateIndicator(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/status_icon/app_status_icon.dart';
 import 'app_theme.dart';
 
@@ -42,5 +43,13 @@ final AppThemeData defaultAppThemeData = AppThemeData(
   motorStateIndicator: MotorStateIndicatorTheme(
     powered: const Color(0xFF3A9002),
     idle: const Color(0xFFFB2C36),
+  ),
+  statistics: StatisticsTheme(
+    motorTemp: Colors.orange,
+    cpuTemp: Colors.orange,
+    vBus: Colors.green,
+    power: Colors.lightBlue,
+    current: Colors.red,
+    dutyCycle: Colors.teal,
   ),
 );

@@ -90,11 +90,11 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "eu.unoprogramo" "\0"
-            VALUE "FileDescription", "bldc_tool" "\0"
+            VALUE "FileDescription", "Pyrion_ESC_Tool" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "bldc_tool" "\0"
+            VALUE "InternalName", "Pyrion_ESC_Tool" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 eu.unoprogramo. All rights reserved." "\0"
-            VALUE "OriginalFilename", "bldc_tool.exe" "\0"
+            VALUE "OriginalFilename", "Pyrion_ESC_Tool.exe" "\0"
             VALUE "ProductName", "bldc_tool" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END

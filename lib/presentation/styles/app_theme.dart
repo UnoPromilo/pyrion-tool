@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/status_icon/app_status_icon.dart';
 
 final class AppThemeData {
   AppThemeData({
+    required this.statistics,
     required this.spinnerColor,
     required this.backgroundGradient,
     required this.grayTextColor,
@@ -21,6 +23,7 @@ final class AppThemeData {
   final AppStatusIconTheme appSuccessIcon;
   final AppStatusIconTheme appErrorIcon;
   final MotorStateIndicatorTheme motorStateIndicator;
+  final StatisticsTheme statistics;
 }
 
 class AppTheme extends StatelessWidget {

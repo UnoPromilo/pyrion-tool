@@ -126,4 +126,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get disconnectButton => 'Disconnect';
+
+  @override
+  String get statisticsMotorTemp => 'Motor';
+
+  @override
+  String get statisticsCpuTemp => 'CPU';
+
+  @override
+  String get statisticsVBus => 'V-Bus';
+
+  @override
+  String get statisticsPower => 'Power';
+
+  @override
+  String get statisticsCurrent => 'Current';
+
+  @override
+  String get statisticsDutyCycle => 'Dupy';
 }

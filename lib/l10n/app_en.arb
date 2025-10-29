@@ -43,5 +43,11 @@
   "connectedSuccessfully": "Connected successfully",
   "manualConnectionDialogTitle": "Manual connection",
   "manualConnectionDialogDescription": "Please provide details of the device you want to connect to",
-  "disconnectButton": "Disconnect"
+  "disconnectButton": "Disconnect",
+  "statisticsMotorTemp": "Motor",
+  "statisticsCpuTemp": "CPU",
+  "statisticsVBus": "V-Bus",
+  "statisticsPower": "Power",
+  "statisticsCurrent": "Current",
+  "statisticsDutyCycle": "Dupy"
 }

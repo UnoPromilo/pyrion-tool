@@ -1,8 +1,15 @@
+import 'package:flutter/widgets.dart';
+
 class AppSizes {
   AppSizes._();
 
-  /// 25px
-  static const double paddingPage = 25;
+  /// LTRB: 25px 45px 25px 25px
+  static EdgeInsetsGeometry paddingPage = const EdgeInsetsGeometry.fromLTRB(
+    25,
+    40,
+    25,
+    25,
+  );
 
   /// 8px
   static const double paddingCard = 8;

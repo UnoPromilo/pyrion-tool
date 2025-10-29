@@ -119,10 +119,10 @@ class DiscoveredDevicesList extends StatelessWidget {
 
   static const _columnWidths = {
     0: 70.0, // Index
-    1: 120.0, // Interface
+    1: 110.0, // Interface
     2: 150.0, // Port/Address
     3: double.infinity, // Device name
-    4: 120.0, // Firmware
+    4: 110.0, // Firmware
     5: 130.0, // Action
   };
 

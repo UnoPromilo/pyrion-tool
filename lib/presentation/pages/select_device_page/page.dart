@@ -21,31 +21,28 @@ class DeviceDiscoveryPage extends StatelessWidget {
     return const AutoBlocProvider<DeviceDiscoveryBloc>.withChild(
       child: AppPage(
         controller: SelectDevicePageController(),
-        body: Padding(
-          padding: EdgeInsets.all(AppSizes.paddingPage),
-          child: Column(
-            children: [
-              TopHeader(),
-              SizedBox(height: AppSizes.spacingXLarge),
-              Expanded(
-                child: Center(
-                  child: ShadCard(
-                    child: Padding(
-                      padding: EdgeInsets.all(AppSizes.paddingCard),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          DiscoveredDevicesHeader(),
-                          Expanded(child: DiscoveredDevicesList()),
-                        ],
-                      ),
+        body: Column(
+          children: [
+            TopHeader(),
+            SizedBox(height: AppSizes.spacingXLarge),
+            Expanded(
+              child: Center(
+                child: ShadCard(
+                  child: Padding(
+                    padding: EdgeInsets.all(AppSizes.paddingCard),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DiscoveredDevicesHeader(),
+                        Expanded(child: DiscoveredDevicesList()),
+                      ],
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

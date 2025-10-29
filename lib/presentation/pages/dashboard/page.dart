@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/device_info/device_info_cubit.dart';
 import '../../blocs/device_session/device_session_bloc.dart';
-import '../../styles/app_sizes.dart';
 import '../../widgets/app_page.dart';
 import 'widgets/controller.dart';
 import 'widgets/device_info.dart';
 import 'widgets/disconnect_button.dart';
+import 'widgets/statistics.dart';
 
 @immutable
 @RoutePage()
@@ -21,13 +21,17 @@ class DashboardPage extends StatelessWidget {
       create: _createCubit,
       child: const AppPage(
         controller: DashboardPageController(),
-        body: Padding(
-          padding: EdgeInsetsGeometry.all(AppSizes.paddingPage),
-          child: Column(
-            children: [
-              Row(children: [DeviceInfo(), Spacer(), DisconnectButton()]),
-            ],
-          ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                DeviceInfo(),
+                Spacer(),
+                DisconnectButton(),
+              ],
+            ),
+            Statistics(),
+          ],
         ),
       ),
     );
