@@ -111,6 +111,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Please restart the device and try again.';
 
   @override
+  String get failedToConnectConnectionLost =>
+      'Connection to the device was lost.';
+
+  @override
   String get connectedSuccessfully => 'Connected successfully';
 
   @override
@@ -119,4 +123,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get manualConnectionDialogDescription =>
       'Please provide details of the device you want to connect to';
+
+  @override
+  String get disconnectButton => 'Disconnect';
 }

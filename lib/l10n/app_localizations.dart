@@ -286,6 +286,12 @@ abstract class AppLocalizations {
   /// **'Please restart the device and try again.'**
   String get failedToConnectDeviceNotResponding;
 
+  /// No description provided for @failedToConnectConnectionLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection to the device was lost.'**
+  String get failedToConnectConnectionLost;
+
   /// No description provided for @connectedSuccessfully.
   ///
   /// In en, this message translates to:
@@ -303,6 +309,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please provide details of the device you want to connect to'**
   String get manualConnectionDialogDescription;
+
+  /// No description provided for @disconnectButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Disconnect'**
+  String get disconnectButton;
 }
 
 class _AppLocalizationsDelegate

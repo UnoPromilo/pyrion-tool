@@ -26,3 +26,15 @@ class ConnectionAttemptFailed extends DeviceSessionEvent {
 
   final ConnectionError connectionError;
 }
+
+class DisconnectDevice implements DeviceSessionEvent {
+  const DisconnectDevice(this.eventOrigin);
+
+  final Origin eventOrigin;
+}
+
+class UpdateTelemetry implements DeviceSessionEvent {
+  UpdateTelemetry(this.telemetryData);
+
+  final TelemetryData telemetryData;
+}

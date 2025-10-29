@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../shared/app_localizations_extensions.dart';
 import '../../../../shared/build_context_extensions.dart';
 import '../../../../shared/interface.dart';
 import '../../../styles/app_sizes.dart';
@@ -37,11 +38,13 @@ class ManualConnectDialog extends StatelessWidget {
                     options: Interface.values.map(
                       (e) => ShadOption(
                         value: e,
-                        child: Text(_connectionTypeToString(e, context)),
+                        child: Text(
+                          context.appLocalizations.interfaceToString(e),
+                        ),
                       ),
                     ),
                     selectedOptionBuilder: (context, value) =>
-                        Text(_connectionTypeToString(value, context)),
+                        Text(context.appLocalizations.interfaceToString(value)),
                   ),
                 ),
               ],
@@ -60,17 +63,5 @@ class ManualConnectDialog extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _connectionTypeToString(
-    Interface connectionType,
-    BuildContext context,
-  ) {
-    return switch (connectionType) {
-      Interface.serial => context.appLocalizations.connectionTypeSerial,
-      Interface.usb => context.appLocalizations.connectionTypeUsb,
-      Interface.can => context.appLocalizations.connectionTypeCan,
-      Interface.virtual => context.appLocalizations.connectionTypeVirtual,
-    };
   }
 }

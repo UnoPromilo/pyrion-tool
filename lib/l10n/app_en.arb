@@ -39,7 +39,9 @@
   "failedToConnectUnauthenticated": "Please verify that you are authenticated.",
   "failedToConnectUnavailable": "Please verify the connection details and try again.",
   "failedToConnectDeviceNotResponding": "Please restart the device and try again.",
+  "failedToConnectConnectionLost": "Connection to the device was lost.",
   "connectedSuccessfully": "Connected successfully",
   "manualConnectionDialogTitle": "Manual connection",
-  "manualConnectionDialogDescription": "Please provide details of the device you want to connect to"
+  "manualConnectionDialogDescription": "Please provide details of the device you want to connect to",
+  "disconnectButton": "Disconnect"
 }

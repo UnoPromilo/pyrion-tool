@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../features/device_discovery/discovered_device.dart';
+import '../../../../shared/app_localizations_extensions.dart';
 import '../../../../shared/build_context_extensions.dart';
-import '../../../../shared/interface.dart';
 import '../../../blocs/device_discovery/device_discovery_bloc.dart';
 import '../../../blocs/device_session/device_session_bloc.dart';
 import '../../../styles/style_extensions.dart';
@@ -72,7 +72,7 @@ class DiscoveredDevicesList extends StatelessWidget {
       ShadTableCell(
         child: ShadBadge(
           child: Text(
-            _connectionTypeToString(device.interface, context),
+            context.appLocalizations.interfaceToString(device.interface),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -97,6 +97,7 @@ class DiscoveredDevicesList extends StatelessWidget {
       ),
       ShadTableCell(
         child: ShadButton(
+          size: ShadButtonSize.sm,
           child: Text(context.appLocalizations.connect),
           onPressed: () => {
             context.read<DeviceSessionBloc>().add(
@@ -112,18 +113,6 @@ class DiscoveredDevicesList extends StatelessWidget {
     ];
   }
 
-  String _connectionTypeToString(
-    Interface connectionType,
-    BuildContext context,
-  ) {
-    return switch (connectionType) {
-      Interface.serial => context.appLocalizations.connectionTypeSerial,
-      Interface.usb => context.appLocalizations.connectionTypeUsb,
-      Interface.can => context.appLocalizations.connectionTypeCan,
-      Interface.virtual => context.appLocalizations.connectionTypeVirtual,
-    };
-  }
-
   String _mapNullableString(String? value) {
     return value ?? '-';
   }
@@ -134,7 +123,7 @@ class DiscoveredDevicesList extends StatelessWidget {
     2: 150.0, // Port/Address
     3: double.infinity, // Device name
     4: 120.0, // Firmware
-    5: 120.0, // Action
+    5: 130.0, // Action
   };
 
   static const _minFlexibleWidth = 120.0;

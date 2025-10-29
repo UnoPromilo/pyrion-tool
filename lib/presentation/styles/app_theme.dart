@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../pages/dashboard/widgets/device_info.dart';
 import '../widgets/status_icon/app_status_icon.dart';
 
 final class AppThemeData {
@@ -10,6 +11,7 @@ final class AppThemeData {
     required this.appStatusIcon,
     required this.appSuccessIcon,
     required this.appErrorIcon,
+    required this.motorStateIndicator,
   });
 
   final Gradient backgroundGradient;
@@ -18,6 +20,7 @@ final class AppThemeData {
   final AppStatusIconTheme appStatusIcon;
   final AppStatusIconTheme appSuccessIcon;
   final AppStatusIconTheme appErrorIcon;
+  final MotorStateIndicatorTheme motorStateIndicator;
 }
 
 class AppTheme extends StatelessWidget {

@@ -1,11 +1,17 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
+import '../../../features/device_info/device_data.dart';
+import '../../../features/device_info/telemetry_data.dart';
 import '../../../features/device_session/device.dart';
+import '../../../features/device_session/device_event.dart';
 import '../../../features/device_session/device_session_service.dart';
+import '../../../remotes/device_api/generated/pyrion/v1/controller_message.pb.dart';
 import '../../../shared/interface.dart';
+import '../../../shared/origin.dart';
 import '../../../shared/result.dart';
 
 part 'device_session_event.dart';
@@ -17,9 +23,14 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
     on<ConnectToDevice>(_onConnectToDevice);
     on<ConnectedSuccessfully>(_onConnectedSuccessfully);
     on<ConnectionAttemptFailed>(_onConnectionAttemptFailed);
+    on<DisconnectDevice>(_onConnectionLost);
+    on<UpdateTelemetry>(_onUpdateTelemetry);
   }
 
   final DeviceSessionService _sessionService;
+  final Logger _logger = Logger('DeviceSessionBloc');
+  StreamSubscription<DeviceEvent>? _deviceSubscription;
+  StreamSink<ControllerMessage>? _deviceSink;
 
   Future<void> _onConnectToDevice(
     ConnectToDevice event,
@@ -34,6 +45,12 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
     );
     switch (connectionResult) {
       case Success(:final data):
+        _deviceSink = data.sink;
+        _deviceSubscription = data.stream.listen(
+          _onDeviceMessage,
+          onDone: _onConnectionClosed,
+          onError: _onConnectionError,
+        );
         add(ConnectedSuccessfully(data));
       case Failure(:final error):
         add(ConnectionAttemptFailed(error));
@@ -44,7 +61,12 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
     ConnectedSuccessfully event,
     Emitter<DeviceSessionState> emit,
   ) {
-    emit(Connected(event.device));
+    emit(
+      Connected(
+        deviceData: event.device.deviceData,
+        telemetryData: const TelemetryData.empty(),
+      ),
+    );
   }
 
   void _onConnectionAttemptFailed(
@@ -52,5 +74,64 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
     Emitter<DeviceSessionState> emit,
   ) {
     emit(NotConnected(error: event.connectionError));
+  }
+
+  void _onDeviceMessage(DeviceEvent event) {
+    if (event is! TelemetryEvent) {
+      _logger.fine('Device message received: $event');
+    }
+
+    switch (event) {
+      case TelemetryEvent():
+        final state = this.state;
+        if (state is Connected) {
+          add(UpdateTelemetry(TelemetryData(cpuTemp: event.cpuTemperature)));
+        }
+      case DeviceIntroductionEvent():
+        break;
+    }
+  }
+
+  void _onConnectionClosed() {
+    _logger.warning('Connection to device lost');
+    add(const DisconnectDevice(Origin.remote));
+  }
+
+  void _onConnectionError(Object error, StackTrace stackTrace) {
+    _logger.warning('Got error from device message stream', error, stackTrace);
+  }
+
+  void _onConnectionLost(
+    DisconnectDevice event,
+    Emitter<DeviceSessionState> emit,
+  ) {
+    _deviceSink?.close();
+    _deviceSubscription?.cancel();
+    _deviceSink = null;
+    _deviceSubscription = null;
+    final error = switch (event.eventOrigin) {
+      Origin.remote => ConnectionError.connectionLost,
+      Origin.local => null,
+    };
+    emit(NotConnected(error: error));
+  }
+
+  void _onUpdateTelemetry(
+    UpdateTelemetry event,
+    Emitter<DeviceSessionState> emit,
+  ) {
+    final state = this.state;
+    if (state is Connected) {
+      emit(state.copyWith(telemetryData: event.telemetryData));
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _deviceSubscription?.cancel();
+    _deviceSink?.close();
+    _deviceSubscription = null;
+    _deviceSink = null;
+    return super.close();
   }
 }

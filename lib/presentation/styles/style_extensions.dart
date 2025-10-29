@@ -3,7 +3,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import 'app_theme.dart';
 
-extension TextStyle on BuildContext {
+extension ThemeExtensions on BuildContext {
   ShadTextTheme get text => ShadTheme.of(this).textTheme;
 
   AppThemeData get appTheme => AppTheme.of(this);

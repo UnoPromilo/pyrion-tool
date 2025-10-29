@@ -1,13 +1,20 @@
 import 'dart:core';
 
+import 'package:flutter/foundation.dart';
+import 'package:stream_transform/stream_transform.dart';
+
 import '../../remotes/device_api/client/client.dart';
 import '../../remotes/device_api/generated/pyrion/v1/controller_message.pb.dart';
+import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart';
 import '../../remotes/remote_result.dart';
 import '../../shared/future_extensions.dart';
 import '../../shared/interface.dart';
 import '../../shared/result.dart';
 import '../../shared/stream_extensions.dart';
+import '../../shared/units/temperature.dart';
+import '../device_info/device_data.dart';
 import 'device.dart';
+import 'device_event.dart';
 
 class DeviceSessionService {
   DeviceSessionService(this._client);
@@ -47,11 +54,12 @@ class DeviceSessionService {
     String? deviceName,
   ) async {
     await Future.delayed(const Duration(milliseconds: 500));
-    final broadcastStream = deviceHandle.stream.asBroadcastStream();
+    final broadcastStream = deviceHandle.stream
+        .map(_mapToDeviceEvent)
+        .asBroadcastStream();
 
     final deviceIntroductionFuture = broadcastStream
-        .where((e) => e.hasDeviceIntroduction())
-        .map((e) => e.deviceIntroduction)
+        .whereType<DeviceIntroductionEvent>()
         .tryFirst
         .failingTimeout(const Duration(seconds: 5));
 
@@ -65,11 +73,14 @@ class DeviceSessionService {
           Success(:final data) => switch (data) {
             Success(:final data) => Success(
               Device(
-                deviceName: deviceName ?? 'Generic device',
-                deviceId: data.uid,
-                firmwareVersion: data.firmware,
-                interface: interface,
-                handle: DeviceHandle(deviceHandle.sink, broadcastStream),
+                deviceData: DeviceData(
+                  deviceName: deviceName ?? 'Generic device',
+                  deviceId: data.deviceId,
+                  firmwareVersion: data.firmwareVersion,
+                  interface: interface,
+                ),
+                sink: deviceHandle.sink,
+                stream: broadcastStream.whereNotNull(),
               ),
             ),
             Failure() => const Failure(ConnectionError.deviceNotResponding),
@@ -85,9 +96,32 @@ class DeviceSessionService {
   }
 }
 
+DeviceEvent? _mapToDeviceEvent(DeviceMessage deviceMessage) {
+  if (deviceMessage.hasTelemetry()) {
+    final data = deviceMessage.telemetry;
+    return TelemetryEvent(
+      cpuTemperature: Temperature.fromKelvins(data.cpuTemp),
+    );
+  }
+  if (deviceMessage.hasDeviceIntroduction()) {
+    final data = deviceMessage.deviceIntroduction;
+    return DeviceIntroductionEvent(
+      deviceId: data.uid,
+      firmwareVersion: data.firmware,
+    );
+  }
+
+  if (kDebugMode) {
+    throw Exception('Unknown device message');
+  }
+
+  return null;
+}
+
 enum ConnectionError {
   networkError,
   unauthenticated,
   unavailable,
   deviceNotResponding,
+  connectionLost,
 }

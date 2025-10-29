@@ -19,7 +19,8 @@ class ConnectingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeviceSessionBloc, DeviceSessionState>(
+    return BlocConsumer<DeviceSessionBloc, DeviceSessionState>(
+      listener: _onStateChange,
       builder: (context, state) {
         return ShadDialog(
           closeIcon: const SizedBox.shrink(),
@@ -40,10 +41,7 @@ class ConnectingDialog extends StatelessWidget {
                 deviceName: deviceName,
                 error: error,
               ),
-              NotConnected() => _ConnectionError(
-                deviceName: deviceName,
-                error: ConnectionError.unavailable,
-              ),
+              NotConnected() => _Redirecting(deviceName: deviceName),
               Connecting() => _Connecting(deviceName: deviceName),
               Connected() => _Redirecting(deviceName: deviceName),
             },
@@ -51,6 +49,12 @@ class ConnectingDialog extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _onStateChange(BuildContext context, DeviceSessionState state) {
+    if (state is NotConnected && state.error == null) {
+      context.pop();
+    }
   }
 }
 
@@ -97,7 +101,7 @@ class _ConnectionError extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '${context.appLocalizations.failedToConnect}}\n${_errorToString(context, error)}',
+                '${context.appLocalizations.failedToConnect}\n${_errorToString(context, error)}',
                 textAlign: TextAlign.center,
               ),
             ],
@@ -117,6 +121,8 @@ class _ConnectionError extends StatelessWidget {
         context.appLocalizations.failedToConnectUnavailable,
       ConnectionError.deviceNotResponding =>
         context.appLocalizations.failedToConnectDeviceNotResponding,
+      ConnectionError.connectionLost =>
+        context.appLocalizations.failedToConnectConnectionLost,
     };
   }
 }
