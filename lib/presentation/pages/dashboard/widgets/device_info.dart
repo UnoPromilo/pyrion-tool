@@ -33,6 +33,8 @@ class DeviceInfo extends StatelessWidget {
                   _FirmwareVersion(),
                   _DotSeparator(),
                   _DeviceId(),
+                  _DotSeparator(),
+                  _Uptime(),
                 ],
               ),
             ),
@@ -99,6 +101,36 @@ class _FirmwareVersion extends StatelessWidget {
   }
 }
 
+class _Uptime extends StatelessWidget {
+  const _Uptime();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DeviceInfoCubit, DeviceInfoState>(
+      builder: (context, state) {
+        return Text(formatDuration(state.telemetryData.uptime));
+      },
+    );
+  }
+
+  String formatDuration(Duration duration) {
+    final days = duration.inDays;
+    final hours = duration.inHours % 24;
+    final minutes = duration.inMinutes % 60;
+    final seconds = duration.inSeconds % 60;
+
+    if (days > 0) {
+      return '${days}d ${hours}h ${minutes}m ${seconds}s';
+    } else if (hours > 0) {
+      return '${hours}h ${minutes}m ${seconds}s';
+    } else if (minutes > 0) {
+      return '${minutes}m ${seconds}s';
+    } else {
+      return '${seconds}s';
+    }
+  }
+}
+
 class _MotorStateIndicator extends StatelessWidget {
   const _MotorStateIndicator();
 
@@ -126,7 +158,7 @@ class _DotSeparator extends StatelessWidget {
 }
 
 class MotorStateIndicatorTheme {
-  MotorStateIndicatorTheme({required this.powered, required this.idle});
+  const MotorStateIndicatorTheme({required this.powered, required this.idle});
 
   final Color powered;
   final Color idle;

@@ -43,6 +43,7 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
       event.interface,
       event.deviceName,
     );
+
     switch (connectionResult) {
       case Success(:final data):
         _deviceSink = data.sink;
@@ -85,7 +86,19 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
       case TelemetryEvent():
         final state = this.state;
         if (state is Connected) {
-          add(UpdateTelemetry(TelemetryData(cpuTemp: event.cpuTemperature)));
+          add(
+            UpdateTelemetry(
+              TelemetryData(
+                cpuTemperature: event.cpuTemperature,
+                currentConsumption: event.currentConsumption,
+                dutyCycle: event.dutyCycle,
+                motorTemperature: event.motorTemperature,
+                powerConsumption: event.powerConsumption,
+                uptime: event.uptime,
+                vBus: event.vBus,
+              ),
+            ),
+          );
         }
       case DeviceIntroductionEvent():
         break;

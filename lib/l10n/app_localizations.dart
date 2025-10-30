@@ -349,7 +349,7 @@ abstract class AppLocalizations {
   /// No description provided for @statisticsDutyCycle.
   ///
   /// In en, this message translates to:
-  /// **'Dupy'**
+  /// **'Duty'**
   String get statisticsDutyCycle;
 }
 

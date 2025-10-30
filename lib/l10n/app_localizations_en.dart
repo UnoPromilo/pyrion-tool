@@ -143,5 +143,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statisticsCurrent => 'Current';
 
   @override
-  String get statisticsDutyCycle => 'Dupy';
+  String get statisticsDutyCycle => 'Duty';
 }

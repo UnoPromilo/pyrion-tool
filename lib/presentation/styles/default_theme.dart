@@ -8,9 +8,7 @@ import 'app_theme.dart';
 
 final ShadThemeData defaultShadThemeData = ShadThemeData(
   brightness: Brightness.dark,
-  colorScheme: ShadOrangeColorScheme.dark(
-    card: const Color(0xff0c0a09).withAlpha(150),
-  ),
+  colorScheme: const ShadOrangeColorScheme.dark(card: Color(0x990c0a10)),
   buttonSizesTheme: const ShadButtonSizesTheme(
     sm: ShadButtonSizeTheme(
       height: 30,
@@ -20,29 +18,29 @@ final ShadThemeData defaultShadThemeData = ShadThemeData(
   outlineButtonTheme: const ShadButtonTheme(foregroundColor: Color(0xFFFFFFFF)),
 );
 
-final AppThemeData defaultAppThemeData = AppThemeData(
-  backgroundGradient: const LinearGradient(
+const AppThemeData defaultAppThemeData = AppThemeData(
+  backgroundGradient: LinearGradient(
     colors: [Color(0xFF5E1005), Color(0xFF8A3908), Color(0xFF5E1005)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   ),
-  grayTextColor: const Color(0xFFB6B6B6),
-  spinnerColor: const Color(0xFFFFFFFF),
+  grayTextColor: Color(0xFFB6B6B6),
+  spinnerColor: Color(0xFFFFFFFF),
   appErrorIcon: AppStatusIconTheme(
-    backgroundColor: const Color(0x33FB2C36),
-    color: const Color(0xFFFB2C36),
+    backgroundColor: Color(0x33FB2C36),
+    color: Color(0xFFFB2C36),
   ),
   appSuccessIcon: AppStatusIconTheme(
-    backgroundColor: const Color(0x333A9002),
-    color: const Color(0xFF3A9002),
+    backgroundColor: Color(0x333A9002),
+    color: Color(0xFF3A9002),
   ),
   appStatusIcon: AppStatusIconTheme(
-    backgroundColor: const Color(0x33FFFFFF),
-    color: const Color(0xFFFFFFFF),
+    backgroundColor: Color(0x33FFFFFF),
+    color: Color(0xFFFFFFFF),
   ),
   motorStateIndicator: MotorStateIndicatorTheme(
-    powered: const Color(0xFF3A9002),
-    idle: const Color(0xFFFB2C36),
+    powered: Color(0xFF3A9002),
+    idle: Color(0xFFFB2C36),
   ),
   statistics: StatisticsTheme(
     motorTemp: Colors.orange,

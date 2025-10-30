@@ -11,6 +11,10 @@ import '../../shared/future_extensions.dart';
 import '../../shared/interface.dart';
 import '../../shared/result.dart';
 import '../../shared/stream_extensions.dart';
+import '../../shared/units/electric_current.dart';
+import '../../shared/units/electric_potential.dart';
+import '../../shared/units/percentage.dart';
+import '../../shared/units/power.dart';
 import '../../shared/units/temperature.dart';
 import '../device_info/device_data.dart';
 import 'device.dart';
@@ -101,6 +105,12 @@ DeviceEvent? _mapToDeviceEvent(DeviceMessage deviceMessage) {
     final data = deviceMessage.telemetry;
     return TelemetryEvent(
       cpuTemperature: Temperature.fromKelvins(data.cpuTemp),
+      motorTemperature: Temperature.fromKelvins(data.motorTemp),
+      powerConsumption: Power.fromWatts(data.power),
+      currentConsumption: ElectricCurrent.fromAmperes(data.current),
+      vBus: ElectricPotential.fromVolts(data.vBus),
+      dutyCycle: Percentage.fromFraction(data.dutyCycle),
+      uptime: Duration(milliseconds: data.uptime.toInt())
     );
   }
   if (deviceMessage.hasDeviceIntroduction()) {

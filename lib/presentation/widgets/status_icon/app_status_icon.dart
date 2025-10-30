@@ -33,7 +33,10 @@ class AppStatusIcon extends StatelessWidget {
 }
 
 class AppStatusIconTheme {
-  AppStatusIconTheme({required this.backgroundColor, required this.color});
+  const AppStatusIconTheme({
+    required this.backgroundColor,
+    required this.color,
+  });
 
   final Color backgroundColor;
   final Color color;

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../shared/build_context_extensions.dart';
 import '../../../../shared/divisible.dart';
 import '../../../../shared/units/electric_current.dart';
-import '../../../../shared/units/electric_potential.dart';
 import '../../../../shared/units/percentage.dart';
-import '../../../../shared/units/power.dart';
-import '../../../../shared/units/temperature.dart';
+import '../../../blocs/device_info/device_info_cubit.dart';
 import '../../../styles/app_sizes.dart';
 import '../../../styles/style_extensions.dart';
 
@@ -20,48 +19,54 @@ class Statistics extends StatelessWidget {
     final appLocalizations = context.appLocalizations;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: AppSizes.spacingSmall),
-      child: Row(
-        spacing: AppSizes.spacingSmall,
-        children: [
-          _Statistic(
-            iconColor: theme.motorTemp,
-            icon: LucideIcons.thermometer,
-            name: appLocalizations.statisticsMotorTemp,
-            value: const Temperature.fromKelvins(300),
-          ),
-          _Statistic(
-            iconColor: theme.cpuTemp,
-            icon: LucideIcons.cpu,
-            name: appLocalizations.statisticsCpuTemp,
-            value: const Temperature.fromKelvins(300),
-          ),
-          _Statistic(
-            iconColor: theme.vBus,
-            icon: LucideIcons.battery,
-            name: appLocalizations.statisticsVBus,
-            value: const ElectricPotential.fromVolts(12.2),
-          ),
-          _Statistic(
-            iconColor: theme.power,
-            icon: LucideIcons.power,
-            name: appLocalizations.statisticsPower,
-            value: const Power.fromWatts(244),
-          ),
-          _StatisticWithBar(
-            color: theme.current,
-            icon: LucideIcons.zap,
-            name: appLocalizations.statisticsCurrent,
-            value: const ElectricCurrent.fromAmperes(20),
-            maxValue: const ElectricCurrent.fromAmperes(30),
-          ),
-          _StatisticWithBar(
-            color: theme.dutyCycle,
-            icon: LucideIcons.percent,
-            name: appLocalizations.statisticsDutyCycle,
-            value: const Percentage.fromPercents(80),
-            maxValue: const Percentage.fromFraction(1),
-          ),
-        ],
+      child: BlocBuilder<DeviceInfoCubit, DeviceInfoState>(
+        builder: (context, state) {
+          return Row(
+            spacing: AppSizes.spacingSmall,
+            children: [
+              _Statistic(
+                iconColor: theme.motorTemp,
+                icon: LucideIcons.thermometer,
+                name: appLocalizations.statisticsMotorTemp,
+                value: state.telemetryData.motorTemperature,
+              ),
+              _Statistic(
+                iconColor: theme.cpuTemp,
+                icon: LucideIcons.cpu,
+                name: appLocalizations.statisticsCpuTemp,
+                value: state.telemetryData.cpuTemperature,
+              ),
+              _Statistic(
+                iconColor: theme.vBus,
+                icon: LucideIcons.battery,
+                name: appLocalizations.statisticsVBus,
+                value: state.telemetryData.vBus,
+              ),
+              _Statistic(
+                iconColor: theme.power,
+                icon: LucideIcons.power,
+                name: appLocalizations.statisticsPower,
+                value: state.telemetryData.powerConsumption,
+              ),
+              _StatisticWithBar(
+                color: theme.current,
+                icon: LucideIcons.zap,
+                name: appLocalizations.statisticsCurrent,
+                value: state.telemetryData.currentConsumption,
+                maxValue: const ElectricCurrent.fromAmperes(
+                  30,
+                ), // TODO take this from settings
+              ),
+              _StatisticWithBar(
+                color: theme.dutyCycle,
+                icon: LucideIcons.percent,
+                name: appLocalizations.statisticsDutyCycle,
+                value: state.telemetryData.dutyCycle,
+                maxValue: const Percentage.fromFraction(1),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
@@ -165,7 +170,7 @@ class _StatisticWithBar<T extends SelfDivisible<T>> extends StatelessWidget {
 }
 
 class StatisticsTheme {
-  StatisticsTheme({
+  const StatisticsTheme({
     required this.motorTemp,
     required this.cpuTemp,
     required this.vBus,

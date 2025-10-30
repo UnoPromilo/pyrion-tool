@@ -5,7 +5,7 @@ import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/status_icon/app_status_icon.dart';
 
 final class AppThemeData {
-  AppThemeData({
+  const AppThemeData({
     required this.statistics,
     required this.spinnerColor,
     required this.backgroundGradient,

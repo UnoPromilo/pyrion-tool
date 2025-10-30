@@ -49,5 +49,5 @@
   "statisticsVBus": "V-Bus",
   "statisticsPower": "Power",
   "statisticsCurrent": "Current",
-  "statisticsDutyCycle": "Dupy"
+  "statisticsDutyCycle": "Duty"
 }
