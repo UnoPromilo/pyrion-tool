@@ -5,7 +5,11 @@ import 'package:stream_transform/stream_transform.dart';
 
 import '../../remotes/device_api/client/client.dart';
 import '../../remotes/device_api/generated/pyrion/v1/controller_message.pb.dart';
-import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart';
+import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart'
+    hide Success;
+import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart'
+    as device_message
+    show Success;
 import '../../remotes/remote_result.dart';
 import '../../shared/future_extensions.dart';
 import '../../shared/interface.dart';
@@ -110,7 +114,7 @@ DeviceEvent? _mapToDeviceEvent(DeviceMessage deviceMessage) {
       currentConsumption: ElectricCurrent.fromAmperes(data.current),
       vBus: ElectricPotential.fromVolts(data.vBus),
       dutyCycle: Percentage.fromFraction(data.dutyCycle),
-      uptime: Duration(milliseconds: data.uptime.toInt())
+      uptime: Duration(milliseconds: data.uptime.toInt()),
     );
   }
   if (deviceMessage.hasDeviceIntroduction()) {
