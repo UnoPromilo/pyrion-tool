@@ -6,10 +6,10 @@ import 'package:stream_transform/stream_transform.dart';
 import '../../remotes/device_api/client/client.dart';
 import '../../remotes/device_api/generated/pyrion/v1/controller_message.pb.dart';
 import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart'
-    hide Success;
+    hide Success, Failure;
 import '../../remotes/device_api/generated/pyrion/v1/device_message.pb.dart'
     as device_message
-    show Success;
+    show Success, Failure;
 import '../../remotes/remote_result.dart';
 import '../../shared/future_extensions.dart';
 import '../../shared/interface.dart';
