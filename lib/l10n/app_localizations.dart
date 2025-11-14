@@ -351,6 +351,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Duty'**
   String get statisticsDutyCycle;
+
+  /// No description provided for @motorStateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Motor State'**
+  String get motorStateTitle;
+
+  /// No description provided for @motorStateOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Motor ON'**
+  String get motorStateOn;
+
+  /// No description provided for @motorStateOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Motor OFF'**
+  String get motorStateOff;
+
+  /// No description provided for @motorControlMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Control Mode'**
+  String get motorControlMode;
+
+  /// No description provided for @modeControlVelocity.
+  ///
+  /// In en, this message translates to:
+  /// **'Velocity'**
+  String get modeControlVelocity;
+
+  /// No description provided for @modeControlTorque.
+  ///
+  /// In en, this message translates to:
+  /// **'Torque'**
+  String get modeControlTorque;
+
+  /// No description provided for @modeControlPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Position'**
+  String get modeControlPosition;
 }
 
 class _AppLocalizationsDelegate

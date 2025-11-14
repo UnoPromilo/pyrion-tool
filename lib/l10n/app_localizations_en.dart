@@ -144,4 +144,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statisticsDutyCycle => 'Duty';
+
+  @override
+  String get motorStateTitle => 'Motor State';
+
+  @override
+  String get motorStateOn => 'Motor ON';
+
+  @override
+  String get motorStateOff => 'Motor OFF';
+
+  @override
+  String get motorControlMode => 'Control Mode';
+
+  @override
+  String get modeControlVelocity => 'Velocity';
+
+  @override
+  String get modeControlTorque => 'Torque';
+
+  @override
+  String get modeControlPosition => 'Position';
 }

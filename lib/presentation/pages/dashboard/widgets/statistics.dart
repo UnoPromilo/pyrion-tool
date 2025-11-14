@@ -17,57 +17,54 @@ class Statistics extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.appTheme.statistics;
     final appLocalizations = context.appLocalizations;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: AppSizes.spacingSmall),
-      child: BlocBuilder<DeviceInfoCubit, DeviceInfoState>(
-        builder: (context, state) {
-          return Row(
-            spacing: AppSizes.spacingSmall,
-            children: [
-              _Statistic(
-                iconColor: theme.motorTemp,
-                icon: LucideIcons.thermometer,
-                name: appLocalizations.statisticsMotorTemp,
-                value: state.telemetryData.motorTemperature,
-              ),
-              _Statistic(
-                iconColor: theme.cpuTemp,
-                icon: LucideIcons.cpu,
-                name: appLocalizations.statisticsCpuTemp,
-                value: state.telemetryData.cpuTemperature,
-              ),
-              _Statistic(
-                iconColor: theme.vBus,
-                icon: LucideIcons.battery,
-                name: appLocalizations.statisticsVBus,
-                value: state.telemetryData.vBus,
-              ),
-              _Statistic(
-                iconColor: theme.power,
-                icon: LucideIcons.power,
-                name: appLocalizations.statisticsPower,
-                value: state.telemetryData.powerConsumption,
-              ),
-              _StatisticWithBar(
-                color: theme.current,
-                icon: LucideIcons.zap,
-                name: appLocalizations.statisticsCurrent,
-                value: state.telemetryData.currentConsumption,
-                maxValue: const ElectricCurrent.fromAmperes(
-                  30,
-                ), // TODO take this from settings
-              ),
-              _StatisticWithBar(
-                color: theme.dutyCycle,
-                icon: LucideIcons.percent,
-                name: appLocalizations.statisticsDutyCycle,
-                value: state.telemetryData.dutyCycle,
-                maxValue: const Percentage.fromFraction(1),
-              ),
-            ],
-          );
-        },
-      ),
+    return BlocBuilder<DeviceInfoCubit, DeviceInfoState>(
+      builder: (context, state) {
+        return Row(
+          spacing: AppSizes.spacingSmall,
+          children: [
+            _Statistic(
+              iconColor: theme.motorTemp,
+              icon: LucideIcons.thermometer,
+              name: appLocalizations.statisticsMotorTemp,
+              value: state.telemetryData.motorTemperature,
+            ),
+            _Statistic(
+              iconColor: theme.cpuTemp,
+              icon: LucideIcons.cpu,
+              name: appLocalizations.statisticsCpuTemp,
+              value: state.telemetryData.cpuTemperature,
+            ),
+            _Statistic(
+              iconColor: theme.vBus,
+              icon: LucideIcons.battery,
+              name: appLocalizations.statisticsVBus,
+              value: state.telemetryData.vBus,
+            ),
+            _Statistic(
+              iconColor: theme.power,
+              icon: LucideIcons.power,
+              name: appLocalizations.statisticsPower,
+              value: state.telemetryData.powerConsumption,
+            ),
+            _StatisticWithBar(
+              color: theme.current,
+              icon: LucideIcons.zap,
+              name: appLocalizations.statisticsCurrent,
+              value: state.telemetryData.currentConsumption,
+              maxValue: const ElectricCurrent.fromAmperes(
+                30,
+              ), // TODO take this from settings
+            ),
+            _StatisticWithBar(
+              color: theme.dutyCycle,
+              icon: LucideIcons.percent,
+              name: appLocalizations.statisticsDutyCycle,
+              value: state.telemetryData.dutyCycle,
+              maxValue: const Percentage.fromFraction(1),
+            ),
+          ],
+        );
+      },
     );
   }
 }

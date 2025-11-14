@@ -12,7 +12,9 @@ class AppSizes {
   );
 
   /// 8px
-  static const double paddingCard = 8;
+  static const EdgeInsetsGeometry paddingCardSmall = EdgeInsetsGeometry.all(8);
+
+  static const EdgeInsetsGeometry paddingCardMedium = EdgeInsetsGeometry.all(12);
 
   /// 5px
   static const double spacingSmall = 5;

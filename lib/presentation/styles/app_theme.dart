@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
 import '../pages/dashboard/widgets/statistics.dart';
+import '../widgets/glass_button.dart';
 import '../widgets/status_icon/app_status_icon.dart';
+import '../widgets/three_section_layout.dart';
 
 final class AppThemeData {
   const AppThemeData({
@@ -14,6 +16,8 @@ final class AppThemeData {
     required this.appSuccessIcon,
     required this.appErrorIcon,
     required this.motorStateIndicator,
+    required this.threeSectionLayoutTheme,
+    required this.glassButton,
   });
 
   final Gradient backgroundGradient;
@@ -24,6 +28,8 @@ final class AppThemeData {
   final AppStatusIconTheme appErrorIcon;
   final MotorStateIndicatorTheme motorStateIndicator;
   final StatisticsTheme statistics;
+  final ThreeSectionLayoutTheme threeSectionLayoutTheme;
+  final GlassButtonTheme glassButton;
 }
 
 class AppTheme extends StatelessWidget {

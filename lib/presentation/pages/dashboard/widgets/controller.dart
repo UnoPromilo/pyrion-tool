@@ -20,6 +20,8 @@ class DashboardPageController extends SingleChildStatelessWidget {
   }
 
   void _onNewState(BuildContext context, DeviceSessionState state) {
+    // TODO update MotorCubit
+
     switch (state) {
       case NotConnected():
         context.maybePop();

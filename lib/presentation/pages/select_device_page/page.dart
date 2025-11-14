@@ -29,7 +29,7 @@ class DeviceDiscoveryPage extends StatelessWidget {
               child: Center(
                 child: ShadCard(
                   child: Padding(
-                    padding: EdgeInsets.all(AppSizes.paddingCard),
+                    padding: AppSizes.paddingCardSmall,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,

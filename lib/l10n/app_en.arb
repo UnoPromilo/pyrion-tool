@@ -49,5 +49,12 @@
   "statisticsVBus": "V-Bus",
   "statisticsPower": "Power",
   "statisticsCurrent": "Current",
-  "statisticsDutyCycle": "Duty"
+  "statisticsDutyCycle": "Duty",
+  "motorStateTitle": "Motor State",
+  "motorStateOn": "Motor ON",
+  "motorStateOff": "Motor OFF",
+  "motorControlMode": "Control Mode",
+  "modeControlVelocity": "Velocity",
+  "modeControlTorque": "Torque",
+  "modeControlPosition": "Position"
 }
