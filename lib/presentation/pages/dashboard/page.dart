@@ -72,7 +72,7 @@ class _Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(width: 270, child: MotorControl());
+    return const SizedBox(width: 230, child: MotorControl());
   }
 }
 

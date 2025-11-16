@@ -109,7 +109,12 @@ DeviceEvent? _mapToDeviceEvent(DeviceMessage deviceMessage) {
     final data = deviceMessage.telemetry;
     return TelemetryEvent(
       cpuTemperature: Temperature.fromKelvins(data.cpuTemp),
-      motorTemperature: Temperature.fromKelvins(data.motorTemp),
+      driverTemperature: data.driverTemp == 0
+          ? null
+          : Temperature.fromKelvins(data.driverTemp),
+      motorTemperature: data.motorTemp == 0
+          ? null
+          : Temperature.fromKelvins(data.motorTemp),
       powerConsumption: Power.fromWatts(data.power),
       currentConsumption: ElectricCurrent.fromAmperes(data.current),
       vBus: ElectricPotential.fromVolts(data.vBus),

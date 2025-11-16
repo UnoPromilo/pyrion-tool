@@ -17,6 +17,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_spinkit: ^5.2.2
+  function_tree: 0.9.1
   grpc: ^4.3.0
   intl: ^0.20.2
   ioc_container: ^1.0.12

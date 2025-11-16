@@ -23,17 +23,25 @@ class Statistics extends StatelessWidget {
           spacing: AppSizes.spacingSmall,
           children: [
             _Statistic(
-              iconColor: theme.motorTemp,
-              icon: LucideIcons.thermometer,
-              name: appLocalizations.statisticsMotorTemp,
-              value: state.telemetryData.motorTemperature,
-            ),
-            _Statistic(
               iconColor: theme.cpuTemp,
               icon: LucideIcons.cpu,
               name: appLocalizations.statisticsCpuTemp,
               value: state.telemetryData.cpuTemperature,
             ),
+            if (state.telemetryData.motorTemperature != null)
+              _Statistic(
+                iconColor: theme.motorTemp,
+                icon: LucideIcons.thermometer,
+                name: appLocalizations.statisticsMotorTemp,
+                value: state.telemetryData.motorTemperature,
+              ),
+            if (state.telemetryData.driverTemperature != null)
+              _Statistic(
+                iconColor: theme.driverTemp,
+                icon: LucideIcons.circuitBoard,
+                name: appLocalizations.statisticsDriverTemp,
+                value: state.telemetryData.driverTemperature,
+              ),
             _Statistic(
               iconColor: theme.vBus,
               icon: LucideIcons.battery,
@@ -170,6 +178,7 @@ class StatisticsTheme {
   const StatisticsTheme({
     required this.motorTemp,
     required this.cpuTemp,
+    required this.driverTemp,
     required this.vBus,
     required this.power,
     required this.current,
@@ -178,6 +187,7 @@ class StatisticsTheme {
 
   final Color motorTemp;
   final Color cpuTemp;
+  final Color driverTemp;
   final Color vBus;
   final Color power;
   final Color current;

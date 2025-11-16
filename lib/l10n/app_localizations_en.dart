@@ -134,6 +134,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statisticsCpuTemp => 'CPU';
 
   @override
+  String get statisticsDriverTemp => 'MOSFETs';
+
+  @override
   String get statisticsVBus => 'V-Bus';
 
   @override
@@ -158,6 +161,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get motorControlMode => 'Control Mode';
 
   @override
+  String get modeControlDuty => 'Duty';
+
+  @override
   String get modeControlVelocity => 'Velocity';
 
   @override
@@ -165,4 +171,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get modeControlPosition => 'Position';
+
+  @override
+  String get motorControlTarget => 'Target';
+
+  @override
+  String get motorControlApplyButton => 'Apply';
+
+  @override
+  String get motorControlInfoTarget => 'Target';
+
+  @override
+  String get motorControlInfoActual => 'Actual';
 }

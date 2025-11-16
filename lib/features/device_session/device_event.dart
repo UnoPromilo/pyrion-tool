@@ -13,6 +13,7 @@ final class TelemetryEvent extends DeviceEvent {
     required this.currentConsumption,
     required this.dutyCycle,
     required this.motorTemperature,
+    required this.driverTemperature,
     required this.powerConsumption,
     required this.uptime,
     required this.vBus,
@@ -20,7 +21,8 @@ final class TelemetryEvent extends DeviceEvent {
   });
 
   final Temperature cpuTemperature;
-  final Temperature motorTemperature;
+  final Temperature? driverTemperature;
+  final Temperature? motorTemperature;
   final ElectricPotential vBus;
   final Power powerConsumption;
   final ElectricCurrent currentConsumption;

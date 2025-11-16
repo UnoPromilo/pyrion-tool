@@ -46,6 +46,7 @@
   "disconnectButton": "Disconnect",
   "statisticsMotorTemp": "Motor",
   "statisticsCpuTemp": "CPU",
+  "statisticsDriverTemp": "MOSFETs",
   "statisticsVBus": "V-Bus",
   "statisticsPower": "Power",
   "statisticsCurrent": "Current",
@@ -54,7 +55,12 @@
   "motorStateOn": "Motor ON",
   "motorStateOff": "Motor OFF",
   "motorControlMode": "Control Mode",
+  "modeControlDuty": "Duty",
   "modeControlVelocity": "Velocity",
   "modeControlTorque": "Torque",
-  "modeControlPosition": "Position"
+  "modeControlPosition": "Position",
+  "motorControlTarget": "Target",
+  "motorControlApplyButton": "Apply",
+  "motorControlInfoTarget": "Target",
+  "motorControlInfoActual": "Actual"
 }

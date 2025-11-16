@@ -5,6 +5,8 @@ final class Temperature {
 
   double get celsiusDegrees => _fromKelvinToCelsiusDegrees(_tempInKelvins);
 
+  double get kelvins => _tempInKelvins;
+
   @override
   String toString() {
     return '${celsiusDegrees.toStringAsFixed(1)} °C';

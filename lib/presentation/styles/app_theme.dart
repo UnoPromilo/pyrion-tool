@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/motor_control/motor_info.dart';
 import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/glass_button.dart';
 import '../widgets/status_icon/app_status_icon.dart';
@@ -18,6 +19,7 @@ final class AppThemeData {
     required this.motorStateIndicator,
     required this.threeSectionLayoutTheme,
     required this.glassButton,
+    required this.motorControlInfo,
   });
 
   final Gradient backgroundGradient;
@@ -30,6 +32,7 @@ final class AppThemeData {
   final StatisticsTheme statistics;
   final ThreeSectionLayoutTheme threeSectionLayoutTheme;
   final GlassButtonTheme glassButton;
+  final MotorControlInfoTheme motorControlInfo;
 }
 
 class AppTheme extends StatelessWidget {

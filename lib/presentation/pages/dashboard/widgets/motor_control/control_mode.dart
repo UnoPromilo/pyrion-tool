@@ -13,29 +13,46 @@ class ControlMode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       spacing: 5,
       children: [
-        _ControlModeItem(
-          onTap: () => context.read<MotorCubit>().setVelocityControl(),
-          selectedVariant: GlassButtonVariant.green,
-          value: VelocityControl().runtimeType,
-          text: context.appLocalizations.modeControlVelocity,
-          icon: LucideIcons.gauge,
+        Row(
+          spacing: 5,
+          children: [
+            _ControlModeItem(
+              onTap: () => context.read<MotorCubit>().setVelocityControl(),
+              selectedVariant: GlassButtonVariant.green,
+              value: const VelocityControl.zero().runtimeType,
+              text: context.appLocalizations.modeControlVelocity,
+              icon: LucideIcons.gauge,
+            ),
+            _ControlModeItem(
+              onTap: () => context.read<MotorCubit>().setTorqueControl(),
+              selectedVariant: GlassButtonVariant.yellow,
+              value: const TorqueControl.zero().runtimeType,
+              text: context.appLocalizations.modeControlTorque,
+              icon: LucideIcons.zap,
+            ),
+          ],
         ),
-        _ControlModeItem(
-          onTap: () => context.read<MotorCubit>().setTorqueControl(),
-          selectedVariant: GlassButtonVariant.yellow,
-          value: TorqueControl().runtimeType,
-          text: context.appLocalizations.modeControlTorque,
-          icon: LucideIcons.zap,
-        ),
-        _ControlModeItem(
-          onTap: () => context.read<MotorCubit>().setPositionControl(),
-          selectedVariant: GlassButtonVariant.blue,
-          value: PositionControl().runtimeType,
-          text: context.appLocalizations.modeControlPosition,
-          icon: LucideIcons.gitCommitHorizontal,
+        Row(
+          spacing: 5,
+          children: [
+            _ControlModeItem(
+              onTap: () => context.read<MotorCubit>().setPositionControl(),
+              selectedVariant: GlassButtonVariant.blue,
+              value: const PositionControl.zero().runtimeType,
+              text: context.appLocalizations.modeControlPosition,
+              icon: LucideIcons.gitCommitHorizontal,
+            ),
+            _ControlModeItem(
+              onTap: () => context.read<MotorCubit>().setDutyCycleControl(),
+              selectedVariant: GlassButtonVariant.violet,
+              value: const DutyCycleControl.zero().runtimeType,
+              text: context.appLocalizations.modeControlDuty,
+              icon: LucideIcons.percent,
+            ),
+          ],
         ),
       ],
     );

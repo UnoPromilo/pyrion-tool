@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/motor_control/motor_info.dart';
 import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/glass_button.dart';
 import '../widgets/status_icon/app_status_icon.dart';
@@ -18,7 +19,32 @@ final ShadThemeData defaultShadThemeData = ShadThemeData(
       padding: EdgeInsetsGeometry.symmetric(vertical: 5, horizontal: 20),
     ),
   ),
-  outlineButtonTheme: const ShadButtonTheme(foregroundColor: Color(0xFFFFFFFF)),
+  outlineButtonTheme: ShadButtonTheme(
+    foregroundColor: const Color(0xFFFFFFFF),
+    decoration: ShadDecoration(
+      border: ShadBorder.all(
+        width: 1,
+        color: const Color(0xFF737373),
+        radius: const BorderRadius.all(Radius.circular(5)),
+      ),
+    ),
+  ),
+  decoration: ShadDecoration(
+    border: ShadBorder.all(
+      width: 1,
+      color: const Color(0xFF737373),
+      radius: const BorderRadius.all(Radius.circular(5)),
+    ),
+  ),
+  inputTheme: ShadInputTheme(
+    decoration: ShadDecoration(
+      border: ShadBorder.all(
+        width: 1,
+        color: const Color(0xFF737373),
+        radius: const BorderRadius.all(Radius.circular(5)),
+      ),
+    ),
+  ),
 );
 
 final AppThemeData defaultAppThemeData = AppThemeData(
@@ -48,6 +74,7 @@ final AppThemeData defaultAppThemeData = AppThemeData(
   statistics: const StatisticsTheme(
     motorTemp: Colors.orange,
     cpuTemp: Colors.orange,
+    driverTemp: Colors.orange,
     vBus: Colors.green,
     power: Colors.lightBlue,
     current: Colors.red,
@@ -79,6 +106,16 @@ final AppThemeData defaultAppThemeData = AppThemeData(
       pressedBackgroundColor: const Color(0x99C55051),
       pressedForegroundColor: const Color(0xFFFFFFFF),
     ),
+    yellow: GlassButtonThemeData(
+      border: ShadBorder.all(width: 1, color: const Color(0xFFFFB900)),
+      focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFFFFB900)),
+      backgroundColor: const Color(0x33FFE900),
+      foregroundColor: const Color(0xFFFFB900),
+      hoverBackgroundColor: const Color(0x66FFE900),
+      hoverForegroundColor: const Color(0xFFFFFFFF),
+      pressedBackgroundColor: const Color(0x99FFE900),
+      pressedForegroundColor: const Color(0xFFFFFFFF),
+    ),
     blue: GlassButtonThemeData(
       border: ShadBorder.all(width: 1, color: const Color(0xFF007BE5)),
       focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFF007BE5)),
@@ -89,14 +126,14 @@ final AppThemeData defaultAppThemeData = AppThemeData(
       pressedBackgroundColor: const Color(0x99007A96),
       pressedForegroundColor: const Color(0xFFFFFFFF),
     ),
-    yellow: GlassButtonThemeData(
-      border: ShadBorder.all(width: 1, color: const Color(0xFFFFB900)),
-      focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFFFFB900)),
-      backgroundColor: const Color(0x33FFE900),
-      foregroundColor: const Color(0xFFFFB900),
-      hoverBackgroundColor: const Color(0x66FFE900),
+    violet: GlassButtonThemeData(
+      border: ShadBorder.all(width: 1, color: const Color(0xFFAD46FF)),
+      focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFFAD46FF)),
+      backgroundColor: const Color(0x3359168B),
+      foregroundColor: const Color(0xFFAD46FF),
+      hoverBackgroundColor: const Color(0x6659168B),
       hoverForegroundColor: const Color(0xFFFFFFFF),
-      pressedBackgroundColor: const Color(0x99FFE900),
+      pressedBackgroundColor: const Color(0x9959168B),
       pressedForegroundColor: const Color(0xFFFFFFFF),
     ),
     gray: GlassButtonThemeData(
@@ -109,5 +146,10 @@ final AppThemeData defaultAppThemeData = AppThemeData(
       pressedBackgroundColor: const Color(0xD08D8D8D),
       pressedForegroundColor: const Color(0xFF737373),
     ),
+  ),
+  motorControlInfo: const MotorControlInfoTheme(
+    backgroundColor: Color(0x40000000),
+    targetColor: Colors.orange,
+    actualColor: Color(0xFF05DF72),
   ),
 );

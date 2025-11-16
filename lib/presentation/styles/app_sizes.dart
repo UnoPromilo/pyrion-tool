@@ -16,6 +16,9 @@ class AppSizes {
 
   static const EdgeInsetsGeometry paddingCardMedium = EdgeInsetsGeometry.all(12);
 
+  // 2px
+  static const double extraSpacingSmall = 2;
+
   /// 5px
   static const double spacingSmall = 5;
 

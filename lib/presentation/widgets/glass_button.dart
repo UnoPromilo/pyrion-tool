@@ -72,6 +72,7 @@ class GlassButton extends StatelessWidget {
       GlassButtonVariant.red => context.appTheme.glassButton.red,
       GlassButtonVariant.yellow => context.appTheme.glassButton.yellow,
       GlassButtonVariant.blue => context.appTheme.glassButton.blue,
+      GlassButtonVariant.violet => context.appTheme.glassButton.violet,
       GlassButtonVariant.gray => context.appTheme.glassButton.gray,
       null => throw StateError('Not reachable'),
     };
@@ -84,6 +85,7 @@ class GlassButtonTheme {
     required this.red,
     required this.yellow,
     required this.blue,
+    required this.violet,
     required this.gray,
   });
 
@@ -91,10 +93,11 @@ class GlassButtonTheme {
   final GlassButtonThemeData red;
   final GlassButtonThemeData yellow;
   final GlassButtonThemeData blue;
+  final GlassButtonThemeData violet;
   final GlassButtonThemeData gray;
 }
 
-enum GlassButtonVariant { green, red, yellow, blue, gray }
+enum GlassButtonVariant { green, red, yellow, blue, violet, gray }
 
 class GlassButtonThemeData {
   const GlassButtonThemeData({

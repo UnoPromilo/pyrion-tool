@@ -13,10 +13,12 @@ final class TelemetryData {
     required this.uptime,
     required this.vBus,
     required this.cpuTemperature,
+    required this.driverTemperature,
   });
 
   const TelemetryData.empty()
     : cpuTemperature = const Temperature.fromKelvins(0),
+      driverTemperature = const Temperature.fromKelvins(0),
       motorTemperature = const Temperature.fromKelvins(0),
       vBus = const ElectricPotential.fromVolts(0),
       powerConsumption = const Power.fromWatts(0),
@@ -25,10 +27,13 @@ final class TelemetryData {
       uptime = Duration.zero;
 
   final Temperature cpuTemperature;
-  final Temperature motorTemperature;
+  final Temperature? driverTemperature;
+  final Temperature? motorTemperature;
   final ElectricPotential vBus;
   final Power powerConsumption;
   final ElectricCurrent currentConsumption;
+
   final Percentage dutyCycle;
+
   final Duration uptime;
 }

@@ -4,22 +4,27 @@ import 'package:meta/meta.dart';
 part 'motor_state.dart';
 
 class MotorCubit extends Cubit<MotorState> {
-  MotorCubit() : super(MotorPoweredOff());
+  MotorCubit() : super(const MotorPoweredOff());
 
+  // TODO validate all inputs
   // Temporary solution until real control is in place
-  void setVelocityControl() {
-    emit(VelocityControl());
+  void setVelocityControl([double target = 0]) {
+    emit(VelocityControl(target: target));
   }
 
-  void setTorqueControl() {
-    emit(TorqueControl());
+  void setTorqueControl([double target = 0]) {
+    emit(TorqueControl(target: target));
   }
 
-  void setPositionControl() {
-    emit(PositionControl());
+  void setPositionControl([double target = 0]) {
+    emit(PositionControl(target: target));
+  }
+
+  void setDutyCycleControl([double target = 0]) {
+    emit(DutyCycleControl(target: target));
   }
 
   void powerOffMotor() {
-    emit(MotorPoweredOff());
+    emit(const MotorPoweredOff());
   }
 }

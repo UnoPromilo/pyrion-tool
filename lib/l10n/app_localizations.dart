@@ -328,6 +328,12 @@ abstract class AppLocalizations {
   /// **'CPU'**
   String get statisticsCpuTemp;
 
+  /// No description provided for @statisticsDriverTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'MOSFETs'**
+  String get statisticsDriverTemp;
+
   /// No description provided for @statisticsVBus.
   ///
   /// In en, this message translates to:
@@ -376,6 +382,12 @@ abstract class AppLocalizations {
   /// **'Control Mode'**
   String get motorControlMode;
 
+  /// No description provided for @modeControlDuty.
+  ///
+  /// In en, this message translates to:
+  /// **'Duty'**
+  String get modeControlDuty;
+
   /// No description provided for @modeControlVelocity.
   ///
   /// In en, this message translates to:
@@ -393,6 +405,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Position'**
   String get modeControlPosition;
+
+  /// No description provided for @motorControlTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get motorControlTarget;
+
+  /// No description provided for @motorControlApplyButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get motorControlApplyButton;
+
+  /// No description provided for @motorControlInfoTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get motorControlInfoTarget;
+
+  /// No description provided for @motorControlInfoActual.
+  ///
+  /// In en, this message translates to:
+  /// **'Actual'**
+  String get motorControlInfoActual;
 }
 
 class _AppLocalizationsDelegate

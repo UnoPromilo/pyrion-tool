@@ -92,7 +92,6 @@ class DeviceApiClient {
       _logger.warning(error.toString());
       return RemoteResult.cantMap();
     }
-    // ignore: avoid_catches_without_on_clauses
     catch (error) {
       await inputStream.close();
       _logger.warning(error.toString());

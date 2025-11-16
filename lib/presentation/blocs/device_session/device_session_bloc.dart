@@ -89,6 +89,7 @@ class DeviceSessionBloc extends Bloc<DeviceSessionEvent, DeviceSessionState> {
           add(
             UpdateTelemetry(
               TelemetryData(
+                driverTemperature: event.driverTemperature,
                 cpuTemperature: event.cpuTemperature,
                 currentConsumption: event.currentConsumption,
                 dutyCycle: event.dutyCycle,
