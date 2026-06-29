@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/fault_log/fault_log_dialog.dart';
 import '../pages/dashboard/widgets/motor_control/motor_info.dart';
 import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/glass_button.dart';
@@ -12,6 +13,7 @@ final class AppThemeData {
     required this.statistics,
     required this.spinnerColor,
     required this.backgroundGradient,
+    required this.mainTextColor,
     required this.grayTextColor,
     required this.appStatusIcon,
     required this.appSuccessIcon,
@@ -20,9 +22,11 @@ final class AppThemeData {
     required this.threeSectionLayoutTheme,
     required this.glassButton,
     required this.motorControlInfo,
+    required this.faultLogTheme,
   });
 
   final Gradient backgroundGradient;
+  final Color mainTextColor;
   final Color grayTextColor;
   final Color spinnerColor;
   final AppStatusIconTheme appStatusIcon;
@@ -33,6 +37,7 @@ final class AppThemeData {
   final ThreeSectionLayoutTheme threeSectionLayoutTheme;
   final GlassButtonTheme glassButton;
   final MotorControlInfoTheme motorControlInfo;
+  final FaultLogTheme faultLogTheme;
 }
 
 class AppTheme extends StatelessWidget {

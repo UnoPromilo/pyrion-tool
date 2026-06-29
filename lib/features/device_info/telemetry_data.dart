@@ -14,6 +14,8 @@ final class TelemetryData {
     required this.vBus,
     required this.cpuTemperature,
     required this.driverTemperature,
+    required this.activeFaults,
+    required this.latchedFaults,
   });
 
   const TelemetryData.empty()
@@ -24,7 +26,9 @@ final class TelemetryData {
       powerConsumption = const Power.fromWatts(0),
       currentConsumption = const ElectricCurrent.fromAmperes(0),
       dutyCycle = const Percentage.fromFraction(0),
-      uptime = Duration.zero;
+      uptime = Duration.zero,
+      activeFaults = 0,
+      latchedFaults = 0;
 
   final Temperature cpuTemperature;
   final Temperature? driverTemperature;
@@ -36,4 +40,6 @@ final class TelemetryData {
   final Percentage dutyCycle;
 
   final Duration uptime;
+  final int activeFaults;
+  final int latchedFaults;
 }

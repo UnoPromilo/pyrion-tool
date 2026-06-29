@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:middle_ellipsis_text/middle_ellipsis_text.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../features/device_discovery/discovered_device.dart';
@@ -78,7 +79,7 @@ class DiscoveredDevicesList extends StatelessWidget {
         ),
       ),
       ShadTableCell(
-        child: Text(device.address, overflow: TextOverflow.ellipsis),
+        child: MiddleEllipsisText(device.address),
       ),
       ShadTableCell(
         child: Text(

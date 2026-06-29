@@ -18,7 +18,6 @@ void main() async {
 
   const windowOptions = WindowOptions(
     title: 'Pyrion ESC Tool',
-    minimumSize: Size(800, 600),
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
     titleBarStyle: TitleBarStyle.hidden,

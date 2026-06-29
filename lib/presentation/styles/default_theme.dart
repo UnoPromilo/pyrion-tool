@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../pages/dashboard/widgets/device_info.dart';
+import '../pages/dashboard/widgets/fault_log/fault_log_dialog.dart';
 import '../pages/dashboard/widgets/motor_control/motor_info.dart';
 import '../pages/dashboard/widgets/statistics.dart';
 import '../widgets/glass_button.dart';
@@ -53,6 +54,7 @@ final AppThemeData defaultAppThemeData = AppThemeData(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   ),
+  mainTextColor: Colors.white,
   grayTextColor: const Color(0xFFB6B6B6),
   spinnerColor: const Color(0xFFFFFFFF),
   appErrorIcon: const AppStatusIconTheme(
@@ -136,20 +138,25 @@ final AppThemeData defaultAppThemeData = AppThemeData(
       pressedBackgroundColor: const Color(0x9959168B),
       pressedForegroundColor: const Color(0xFFFFFFFF),
     ),
-    gray: GlassButtonThemeData(
-      border: ShadBorder.all(width: 1, color: const Color(0xFF737373)),
-      focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFF737373)),
+    white: GlassButtonThemeData(
+      border: ShadBorder.all(width: 1, color: const Color(0xFFE1E1E1)),
+      focusedBorder: ShadBorder.all(width: 1, color: const Color(0xFFE1E1E1)),
       backgroundColor: const Color(0x0D8D8D8D),
-      foregroundColor: const Color(0xFF737373),
+      foregroundColor: const Color(0xFFE1E1E1),
       hoverBackgroundColor: const Color(0x1A8D8D8D),
-      hoverForegroundColor: const Color(0xFF737373),
+      hoverForegroundColor: const Color(0xFFE1E1E1),
       pressedBackgroundColor: const Color(0xD08D8D8D),
-      pressedForegroundColor: const Color(0xFF737373),
+      pressedForegroundColor: const Color(0xFFE1E1E1),
     ),
   ),
   motorControlInfo: const MotorControlInfoTheme(
     backgroundColor: Color(0x40000000),
     targetColor: Colors.orange,
     actualColor: Color(0xFF05DF72),
+  ),
+  faultLogTheme: const FaultLogTheme(
+    noFaultsIconColor: Color(0xFF3A9002),
+    activeFaultColor: Color(0xFFFB2C36),
+    latchedFaultColor: Colors.orange,
   ),
 );

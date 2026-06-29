@@ -1,37 +1,17 @@
-import '../../shared/units/electric_current.dart';
-import '../../shared/units/electric_potential.dart';
-import '../../shared/units/percentage.dart';
-import '../../shared/units/power.dart';
-import '../../shared/units/temperature.dart';
+import '../device_info/telemetry_data.dart';
 
 sealed class DeviceEvent {
   const DeviceEvent();
 }
 
 final class TelemetryEvent extends DeviceEvent {
-  const TelemetryEvent({
-    required this.currentConsumption,
-    required this.dutyCycle,
-    required this.motorTemperature,
-    required this.driverTemperature,
-    required this.powerConsumption,
-    required this.uptime,
-    required this.vBus,
-    required this.cpuTemperature,
-  });
+  const TelemetryEvent(this.data);
 
-  final Temperature cpuTemperature;
-  final Temperature? driverTemperature;
-  final Temperature? motorTemperature;
-  final ElectricPotential vBus;
-  final Power powerConsumption;
-  final ElectricCurrent currentConsumption;
-  final Percentage dutyCycle;
-  final Duration uptime;
+  final TelemetryData data;
 
   @override
   String toString() {
-    return 'TelemetryEvent: {CpuTemp: $cpuTemperature}';
+    return 'TelemetryEvent: {CpuTemp: ${data.cpuTemperature}}';
   }
 }
 
@@ -44,3 +24,25 @@ final class DeviceIntroductionEvent extends DeviceEvent {
   final String deviceId;
   final String firmwareVersion;
 }
+
+final class FaultLogEvent extends DeviceEvent {
+  FaultLogEvent(this.faults);
+
+  final List<FaultEntry> faults;
+
+  @override
+  String toString() {
+    return 'FaultLogsEvent {Count: ${faults.length}';
+  }
+}
+
+final class FaultEntry {
+  FaultEntry(this.type, this.state);
+
+  final FaultType type;
+  final FaultState state;
+}
+
+enum FaultType { encoder }
+
+enum FaultState { ongoing, latched }

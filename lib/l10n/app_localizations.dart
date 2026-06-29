@@ -429,6 +429,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Actual'**
   String get motorControlInfoActual;
+
+  /// No description provided for @closeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeButton;
+
+  /// No description provided for @noFaultsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'No Faults'**
+  String get noFaultsButton;
+
+  /// No description provided for @activeFaultsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Faults'**
+  String get activeFaultsButton;
+
+  /// No description provided for @latchedFaultsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Latched Faults'**
+  String get latchedFaultsButton;
+
+  /// No description provided for @noFaultsRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'No faults recorded'**
+  String get noFaultsRecorded;
+
+  /// No description provided for @clearLatched.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear latched'**
+  String get clearLatched;
+
+  /// No description provided for @faultLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Fault Log'**
+  String get faultLog;
+
+  /// No description provided for @activeFaultBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get activeFaultBadge;
+
+  /// No description provided for @latchedFaultBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Latched'**
+  String get latchedFaultBadge;
+
+  /// No description provided for @encoderFaultHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'ENCODER'**
+  String get encoderFaultHeader;
+
+  /// No description provided for @encoderFaultDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Encoder signal lost or unstable. Please verify the physical installation and cable integrity.'**
+  String get encoderFaultDescription;
 }
 
 class _AppLocalizationsDelegate

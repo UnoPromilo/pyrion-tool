@@ -62,5 +62,16 @@
   "motorControlTarget": "Target",
   "motorControlApplyButton": "Apply",
   "motorControlInfoTarget": "Target",
-  "motorControlInfoActual": "Actual"
+  "motorControlInfoActual": "Actual",
+  "closeButton": "Close",
+  "noFaultsButton": "No Faults",
+  "activeFaultsButton": "Active Faults",
+  "latchedFaultsButton": "Latched Faults",
+  "noFaultsRecorded": "No faults recorded",
+  "clearLatched": "Clear latched",
+  "faultLog": "Fault Log",
+  "activeFaultBadge": "Active",
+  "latchedFaultBadge": "Latched",
+  "encoderFaultHeader": "ENCODER",
+  "encoderFaultDescription": "Encoder signal lost or unstable. Please verify the physical installation and cable integrity."
 }

@@ -16,15 +16,7 @@ final class Connecting extends DeviceSessionState {
 }
 
 class Connected extends DeviceSessionState {
-  Connected({required this.deviceData, required this.telemetryData});
+  Connected(this.session);
 
-  final DeviceData deviceData;
-  final TelemetryData telemetryData;
-
-  Connected copyWith({TelemetryData? telemetryData}) {
-    return Connected(
-      deviceData: deviceData,
-      telemetryData: telemetryData ?? this.telemetryData,
-    );
-  }
+  final DeviceSession session;
 }

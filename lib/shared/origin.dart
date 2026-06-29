@@ -1,1 +1,0 @@
-enum Origin { remote, local }

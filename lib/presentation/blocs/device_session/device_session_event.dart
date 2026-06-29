@@ -16,9 +16,9 @@ class ConnectToDevice extends DeviceSessionEvent {
 }
 
 class ConnectedSuccessfully extends DeviceSessionEvent {
-  ConnectedSuccessfully(this.device);
+  ConnectedSuccessfully(this.session);
 
-  final Device device;
+  final DeviceSession session;
 }
 
 class ConnectionAttemptFailed extends DeviceSessionEvent {
@@ -28,13 +28,9 @@ class ConnectionAttemptFailed extends DeviceSessionEvent {
 }
 
 class DisconnectDevice implements DeviceSessionEvent {
-  const DisconnectDevice(this.eventOrigin);
-
-  final Origin eventOrigin;
+  const DisconnectDevice();
 }
 
-class UpdateTelemetry implements DeviceSessionEvent {
-  UpdateTelemetry(this.telemetryData);
-
-  final TelemetryData telemetryData;
+class ConnectionLost implements DeviceSessionEvent {
+  const ConnectionLost();
 }

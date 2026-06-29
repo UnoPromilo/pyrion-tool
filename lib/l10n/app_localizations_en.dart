@@ -183,4 +183,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get motorControlInfoActual => 'Actual';
+
+  @override
+  String get closeButton => 'Close';
+
+  @override
+  String get noFaultsButton => 'No Faults';
+
+  @override
+  String get activeFaultsButton => 'Active Faults';
+
+  @override
+  String get latchedFaultsButton => 'Latched Faults';
+
+  @override
+  String get noFaultsRecorded => 'No faults recorded';
+
+  @override
+  String get clearLatched => 'Clear latched';
+
+  @override
+  String get faultLog => 'Fault Log';
+
+  @override
+  String get activeFaultBadge => 'Active';
+
+  @override
+  String get latchedFaultBadge => 'Latched';
+
+  @override
+  String get encoderFaultHeader => 'ENCODER';
+
+  @override
+  String get encoderFaultDescription =>
+      'Encoder signal lost or unstable. Please verify the physical installation and cable integrity.';
 }

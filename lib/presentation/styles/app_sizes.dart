@@ -14,10 +14,17 @@ class AppSizes {
   /// 8px
   static const EdgeInsetsGeometry paddingCardSmall = EdgeInsetsGeometry.all(8);
 
-  static const EdgeInsetsGeometry paddingCardMedium = EdgeInsetsGeometry.all(12);
+  /// 12px
+  static const EdgeInsetsGeometry paddingCardMedium = EdgeInsetsGeometry.all(
+    12,
+  );
 
-  // 2px
-  static const double extraSpacingSmall = 2;
+  /// 5px
+  static const BorderRadiusGeometry defaultCornerRadiusGeometry =
+      BorderRadiusGeometry.all(Radius.circular(defaultCornerRadius));
+
+  /// 2px
+  static const double spacingExtraSmall = 2;
 
   /// 5px
   static const double spacingSmall = 5;
@@ -31,6 +38,12 @@ class AppSizes {
   /// 30px
   static const double spacingXLarge = 30;
 
+  // 30px
+  static const double smallIconSize = 20;
+
   /// 50px
   static const double defaultAppIconSize = 50;
+
+  /// 5px
+  static const double defaultCornerRadius = 5;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:middle_ellipsis_text/middle_ellipsis_text.dart';
 
 import '../../../../shared/app_localizations_extensions.dart';
 import '../../../../shared/build_context_extensions.dart';
@@ -16,29 +17,31 @@ class DeviceInfo extends StatelessWidget {
       children: [
         const SizedBox(width: 5),
         const _MotorStateIndicator(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const _DeviceName(),
-            DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 12,
-                color: context.appTheme.grayTextColor,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const _DeviceName(),
+              DefaultTextStyle(
+                style: TextStyle(
+                  fontSize: 12,
+                  color: context.appTheme.grayTextColor,
+                ),
+                child: const Row(
+                  spacing: 5,
+                  children: [
+                    _Interface(),
+                    _DotSeparator(),
+                    _FirmwareVersion(),
+                    _DotSeparator(),
+                    _DeviceId(),
+                    _DotSeparator(),
+                    _Uptime(),
+                  ],
+                ),
               ),
-              child: const Row(
-                spacing: 5,
-                children: [
-                  _Interface(),
-                  _DotSeparator(),
-                  _FirmwareVersion(),
-                  _DotSeparator(),
-                  _DeviceId(),
-                  _DotSeparator(),
-                  _Uptime(),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -82,7 +85,7 @@ class _DeviceId extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DeviceInfoCubit, DeviceInfoState>(
       builder: (context, state) {
-        return Text(state.deviceData.deviceId);
+        return Flexible(child: MiddleEllipsisText(state.deviceData.deviceId));
       },
     );
   }

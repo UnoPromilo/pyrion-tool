@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/device_info/device_info_cubit.dart';
-import '../../blocs/device_session/device_session_bloc.dart';
 import '../../blocs/motor/motor_cubit.dart';
 import '../../styles/app_sizes.dart';
 import '../../widgets/app_page.dart';
+import '../../widgets/bloc_provider/session_aware_bloc_provider.dart';
 import '../../widgets/three_section_layout.dart';
 import 'widgets/controller.dart';
 import 'widgets/device_info.dart';
 import 'widgets/disconnect_button.dart';
+import 'widgets/faults_button.dart';
 import 'widgets/motor_control.dart';
 import 'widgets/settings.dart';
 import 'widgets/statistics.dart';
@@ -24,8 +25,10 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: _createDeviceInfoCubit),
-        BlocProvider(create: _createMotorCubit),
+        SessionAwareBlocProvider(
+          create: (_, session) => DeviceInfoCubit(session),
+        ),
+        SessionAwareBlocProvider(create: (_, session) => MotorCubit(/*TODO*/)),
       ],
       child: const AppPage(
         controller: DashboardPageController(),
@@ -37,19 +40,6 @@ class DashboardPage extends StatelessWidget {
       ),
     );
   }
-
-  DeviceInfoCubit _createDeviceInfoCubit(BuildContext context) {
-    final sessionState = context.read<DeviceSessionBloc>().state;
-    if (sessionState is! Connected) {
-      throw Exception('DeviceInfoCubit initialized without a connected device');
-    }
-    return DeviceInfoCubit(sessionState.deviceData);
-  }
-
-  MotorCubit _createMotorCubit(BuildContext context) {
-    // TODO initialize from DeviceSessionBloc
-    return MotorCubit();
-  }
 }
 
 class _Header extends StatelessWidget {
@@ -59,7 +49,15 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Row(children: [DeviceInfo(), Spacer(), DisconnectButton()]),
+        Row(
+          children: [
+            Expanded(child: DeviceInfo()),
+            SizedBox(width: AppSizes.spacingLarge),
+            FaultsButton(),
+            SizedBox(width: AppSizes.spacingSmall),
+            DisconnectButton(),
+          ],
+        ),
         SizedBox(height: AppSizes.spacingSmall),
         Statistics(),
       ],

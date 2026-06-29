@@ -86,7 +86,7 @@ class _ControlModeItem extends StatelessWidget {
             padding: AppSizes.paddingCardSmall,
             variant: selected && enabled
                 ? selectedVariant
-                : GlassButtonVariant.gray,
+                : GlassButtonVariant.white,
             height: 55,
             enabled: enabled,
             onPressed: onTap,

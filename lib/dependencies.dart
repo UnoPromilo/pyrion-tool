@@ -1,7 +1,7 @@
 import 'package:ioc_container/ioc_container.dart';
 
 import 'features/device_discovery/device_discovery_service.dart';
-import 'features/device_session/device_session_service.dart';
+import 'features/device_session/device_session_factory.dart';
 import 'presentation/blocs/device_discovery/device_discovery_bloc.dart';
 import 'presentation/blocs/device_session/device_session_bloc.dart';
 import 'remotes/device_api/client/client.dart';
@@ -35,7 +35,7 @@ extension on IocContainerBuilder {
   }
 
   void registerDeviceSession() {
-    add((c) => DeviceSessionService(c()));
+    add((c) => DeviceSessionFactory(c()));
   }
 
   void registerRemotes() {

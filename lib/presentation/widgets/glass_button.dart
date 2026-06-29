@@ -14,6 +14,7 @@ class GlassButton extends StatelessWidget {
     this.height,
     this.width,
     this.enabled = true,
+    this.leading
   }) : variant = null;
 
   const GlassButton.variant({
@@ -26,6 +27,7 @@ class GlassButton extends StatelessWidget {
     this.height,
     this.width,
     this.enabled = true,
+    this.leading,
   }) : theme = null;
 
   final Widget child;
@@ -37,6 +39,7 @@ class GlassButton extends StatelessWidget {
   final double? height;
   final double? width;
   final bool enabled;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +60,9 @@ class GlassButton extends StatelessWidget {
       hoverBackgroundColor: theme.hoverBackgroundColor,
       pressedForegroundColor: theme.pressedForegroundColor,
       pressedBackgroundColor: theme.pressedBackgroundColor,
-      child: child,
       enabled: enabled,
+      leading: leading,
+      child: child,
     );
   }
 
@@ -73,7 +77,7 @@ class GlassButton extends StatelessWidget {
       GlassButtonVariant.yellow => context.appTheme.glassButton.yellow,
       GlassButtonVariant.blue => context.appTheme.glassButton.blue,
       GlassButtonVariant.violet => context.appTheme.glassButton.violet,
-      GlassButtonVariant.gray => context.appTheme.glassButton.gray,
+      GlassButtonVariant.white => context.appTheme.glassButton.white,
       null => throw StateError('Not reachable'),
     };
   }
@@ -86,7 +90,7 @@ class GlassButtonTheme {
     required this.yellow,
     required this.blue,
     required this.violet,
-    required this.gray,
+    required this.white,
   });
 
   final GlassButtonThemeData green;
@@ -94,10 +98,10 @@ class GlassButtonTheme {
   final GlassButtonThemeData yellow;
   final GlassButtonThemeData blue;
   final GlassButtonThemeData violet;
-  final GlassButtonThemeData gray;
+  final GlassButtonThemeData white;
 }
 
-enum GlassButtonVariant { green, red, yellow, blue, violet, gray }
+enum GlassButtonVariant { green, red, yellow, blue, violet, white }
 
 class GlassButtonThemeData {
   const GlassButtonThemeData({

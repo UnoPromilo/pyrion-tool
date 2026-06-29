@@ -1,10 +1,12 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../../features/device_session/device_session_service.dart';
+import '../../../../features/device_session/device_session_factory.dart';
 import '../../../../shared/build_context_extensions.dart';
 import '../../../blocs/device_session/device_session_bloc.dart';
 import '../../../styles/app_sizes.dart';
@@ -53,7 +55,12 @@ class ConnectingDialog extends StatelessWidget {
 
   void _onStateChange(BuildContext context, DeviceSessionState state) {
     if (state is NotConnected && state.error == null) {
-      context.pop();
+      // Needs to be done after handling navigation in DashboardPageController
+      Future.delayed(Duration.zero).then((_) {
+        if (context.mounted) {
+          context.pop();
+        }
+      });
     }
   }
 }
@@ -134,16 +141,20 @@ class _Redirecting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const AppSuccessIcon(),
-        const SizedBox(height: 20),
-        Text(
-          context.appLocalizations.connectedSuccessfully,
-          style: context.shadTheme.textTheme.h3,
-        ),
-        if (deviceName != null) Text(deviceName!) else const Text(':)'),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const AppSuccessIcon(),
+          const SizedBox(height: 20),
+          Text(
+            context.appLocalizations.connectedSuccessfully,
+            style: context.shadTheme.textTheme.h3,
+          ),
+          if (deviceName != null) Text(deviceName!) else const Text(':)'),
+        ],
+      ),
     );
   }
 }

@@ -67,7 +67,7 @@ class _NumberInputState extends State<NumberInput> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Row(
-          spacing: AppSizes.extraSpacingSmall,
+          spacing: AppSizes.spacingExtraSmall,
           children: [
             Expanded(
               child: ShadInput(
@@ -87,7 +87,7 @@ class _NumberInputState extends State<NumberInput> {
             SizedBox(
               height: 38,
               child: Column(
-                spacing: AppSizes.extraSpacingSmall,
+                spacing: AppSizes.spacingExtraSmall,
                 children: [
                   Expanded(
                     child: ShadIconButton.outline(

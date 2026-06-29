@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../shared/build_context_extensions.dart';
@@ -17,27 +16,29 @@ class MotorControl extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadCard(
       padding: AppSizes.paddingCardMedium,
-      child: Column(
-        spacing: AppSizes.spacingXLarge / 2,
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _Section(
-            title: context.appLocalizations.motorStateTitle,
-            content: const MotorStatus(),
-          ),
-          const SizedBox.shrink(),
-          _Section(
-            title: context.appLocalizations.motorControlMode,
-            content: const Column(
-              spacing: AppSizes.spacingLarge,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [ControlMode(), Target(), ApplyButton()],
+      child: SingleChildScrollView(
+        child: Column(
+          spacing: AppSizes.spacingXLarge / 2,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _Section(
+              title: context.appLocalizations.motorStateTitle,
+              content: const MotorStatus(),
             ),
-          ),
-          const Divider(height: 0),
-          const _Section(content: MotorInfo()),
-        ],
+            const SizedBox.shrink(),
+            _Section(
+              title: context.appLocalizations.motorControlMode,
+              content: const Column(
+                spacing: AppSizes.spacingLarge,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [ControlMode(), Target(), ApplyButton()],
+              ),
+            ),
+            const Divider(height: 0),
+            const _Section(content: MotorInfo()),
+          ],
+        ),
       ),
     );
   }
